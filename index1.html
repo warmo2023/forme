@@ -1,0 +1,361 @@
+﻿<!doctype html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="keywords" content="ChatShare 官网：chatshare.ren">
+    <meta name="description" content="">
+    <link href="/favicon.ico" rel="icon">
+    <!-- 预加载关键CSS，让样式尽早开始下载 -->
+    <link rel="preload" href="static/css/bootstrap.min.css" as="style">
+    <link rel="preload" href="static/css/i.css" as="style">
+    <!-- 预加载JS，但不阻塞渲染 -->
+    <link rel="preload" href="/assets/static/jquery.min.js" as="script">
+    <link rel="preload" href="/assets/static/acg.js?v=3.3.0" as="script">
+    <link rel="stylesheet" href="static/css/bootstrap.min.css">
+    <link rel="stylesheet" href="static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="static/css/i.css">
+    <link href="static/css/Main.css" rel="stylesheet">
+    <title>ChatShare 官网：chatshare.ren</title>
+    <!--start::HOOK-->
+        <!--end::HOOK-->
+    <script>
+        const cache_status = parseInt("0");
+        const cache_expire = parseInt("60");
+    </script>
+</head>
+<body>
+<style>
+    /* 先用纯色背景占位，JS加载完后再换背景图，避免首屏白屏等图 */
+    body {
+        background-color: #f5f5f5;
+        background-size: cover;
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+    }
+</style>
+<script>
+    // 延迟加载背景图，不阻塞首屏渲染
+    (function() {
+        var bg = '/assets/cache/general/image/202512202207466574628.jpg';
+        if (bg) {
+            var img = new Image();
+            img.onload = function() {
+                document.body.style.backgroundImage = "url('" + bg + "')";
+            };
+            img.src = bg;
+        }
+    })();
+</script>
+<div id="app">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" style="background-color: rgba(255,255,255,0.85) !important;">
+        <div class="container">
+            <div class="navbar-brand">
+                <a href="">
+                    <img src="favicon.ico" height="30px" style="border-radius: 50%;box-shadow: #f0d1d4 1px 1px 1px;">
+                     <span style="position: relative;top: 4px;left: 3px;font-weight: bold;color: #1396558a;">  ChatShare 官网：chatshare.ren               </span></a>
+
+                 <a href="login.html"></a>             </div>
+            
+            <!--<div class="navbar-collapse">
+                <ul class="navbar-nav mr-auto"></ul>
+            </div>-->
+        </div>
+    </nav>    <div class="content-wrapper">
+        <div class="container">
+
+            <!-- 骨架屏占位，数据加载完后自动隐藏 -->
+            <div class="skeleton-loading">
+                <div class="card skeleton-card">
+                    <div class="card-header">
+                        <p class="card-title skeleton-title"></p>
+                    </div>
+                    <div class="card-block">
+                        <div class="skeleton-row"></div>
+                        <div class="skeleton-row"></div>
+                        <div class="skeleton-row"></div>
+                        <div class="skeleton-row"></div>
+                    </div>
+                </div>
+            </div>
+
+            <style>
+                @keyframes shimmer {
+                    0% { background-position: -600px 0; }
+                    100% { background-position: 600px 0; }
+                }
+                .skeleton-card { opacity: 1; transition: opacity 0.3s; }
+                .skeleton-title {
+                    width: 120px; height: 16px; border-radius: 4px;
+                    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+                    background-size: 600px 100%;
+                    animation: shimmer 1.4s infinite;
+                }
+                .skeleton-row {
+                    height: 38px; margin-bottom: 8px; border-radius: 4px;
+                    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+                    background-size: 600px 100%;
+                    animation: shimmer 1.4s infinite;
+                }
+                .skeleton-row:nth-child(2) { animation-delay: 0.1s; }
+                .skeleton-row:nth-child(3) { animation-delay: 0.2s; }
+                .skeleton-row:nth-child(4) { animation-delay: 0.3s; }
+            </style>
+
+            <div class="category-list">
+            </div>
+
+            <!--            公告部分-->
+            <div class="card">
+                <div class="card-header">
+                    <p class="card-title"><i class="fa fa-bullhorn" aria-hidden="true"></i> 公告</p>
+                </div>
+                <div class="card-block">
+                    <p style="text-align:left;"><b><font color="#c24f4a">【全主流 AI 模型一站式服务 无需翻墙 不限次数】</font></b></p><p style="text-align:left;">✅ 顶流模型全覆盖：集成 ChatGPT、Claude、Midjourney、Gemini、Grok、Sora、Kimi、Deepseek 等全网顶尖模型，直连官网同步更新，一键无缝切换</p><p style="text-align:left;">✅ 核心使用优势：无需科学上网，单人独享账号，无使用次数限制，聊天记录独立隔离，隐私安全有保障</p><p style="text-align:left;">✅ 套餐专属权益：</p><p style="text-align:left;">・7 天及以上套餐：解锁无限次使用，额外赠送 Gemini 镜像</p><p style="text-align:left;">・30 天及以上套餐：解锁无限次使用，额外赠送 Gemini 镜像、Claude 镜像、Midjourney 镜像</p><p style="text-align:left;">✅ 合规开票服务：90 天、180 天、365 天激活码均支持开具发票，有需求可私信客服提供发票抬头信息</p><p><a href="https://qun.qq.com/universal-share/share?ac=1&authKey=mcc%2FX%2Fz7RMGYIRzIVpg8%2FZJVfWX0K1%2F75T0UxBGZ%2BVRkoQ6pxhgUgo7ATOg%2FWsdp&busi_data=eyJncm91cENvZGUiOiIxMDk1NDkyMzU4IiwidG9rZW4iOiIrOG5aeEVTdERFZWVUOHpyQjNSbEl0TXpHOVFGbHdlR1NTY1ZuMFJzd2FBSktlK0lnbjJmOEVLYzFUTG5rSFBLIiwidWluIjoiNTM0NDkzOTQ3In0%3D&data=r2P5ODbUq3UhszK7X2rtHqOWJhXHkHOn7XldeA_zuXTVNQ2SRIK94V-N9HACobJWns_jIayjmc19ivcaSLXu0Q&svctype=4&tempid=h5_group_info" target="_blank" rel="noreferrer noopener"><b><font color="#4d80bf">
+人工客服 QQ：1095492358（点击即可联系）</font></b></a></p>                </div>
+            </div>
+
+        </div>
+    </div>
+    </div>
+
+
+    <div class="open-commodity" style="display: none;">
+        <div class="layout commodity-di">
+            <div class="layout-content __html">
+                <form class="commodity-form">
+                    <p class="commodity_name"></p>
+                    <p class="description"></p>
+                    <p class="seckill general">限时秒杀：<span class="seckill_timer"></span></p>
+                    <p class="general"><span class="price">0</span></p>
+                    <p class="general">发货方式：<span class="delivery_way"></span>
+                    </p>
+                    <p class="general race-view">宝贝类型：<span></span></p>
+                    <p class="general sku-view"></p>
+                    <p class="general">联系方式：<input class="acg-input contact" type="text" name="contact" placeholder="请输入联系方式">
+                    </p>
+                    <p class="password general">查询密码：<input class="acg-input" type="text" name="password" placeholder="请设置查询密码">
+                    </p>
+                    <p class="widget general"></p>
+                    <p class="coupon general">优惠代卷：<input class="acg-input" type="text" name="coupon" placeholder="没有可不填写" onchange="acg.API.tradeAmountPerform('.trade_amount')">
+                    </p>
+                    <p class="general">购买数量：<input class="acg-input purchase_num" type="number" name="num" value="1" onchange="acg.API.tradeAmountPerform('.trade_amount')"> </p>
+                    <p class="general captcha_status">人机验证：<input class="acg-input captcha-input" name="captcha" type="text" placeholder="请输入验证码"> <img class="captcha"></p>
+                    <p class="purchase_count general"></p>
+                    <p class="general">人工客服：<a target="_blank" class="qq-service"><i class="fa fa-qq"></i>
+                            1095492358</a></p>
+                    <p class="lot"></p>
+                    <p class="draft_status"></p>
+                </form>
+            </div>
+        </div>
+        <div class="layout pay-content">
+            <label><i class="fa fa-shopping-cart"></i> 付款</label>
+            <div class="pay_list">
+            </div>
+        </div>
+    </div>
+
+<div class="content-icp"></div>
+<!--start::HOOK-->
+<!--end::HOOK-->
+
+<!-- JS在页面底部加载，既不阻塞渲染，又能保证页面内script可以调用acg -->
+<script src="static/js/jquery.min.js"></script>
+<script src="static/js/acg.js"></script>    <script>
+        acg.ready("0", () => {
+            let __html = $('.__html').html();
+            let __htmlInit = () => {
+                $('.commodity-di').show();
+                $('.__html').html(__html);
+            }
+            let __htmlUnload = () => {
+                $('.commodity-di').hide();
+                $('.__html').html("");
+            }
+
+            __htmlUnload();
+
+            let defaultCommodity = "";
+
+            function inventoryHidden(state, count) {
+                if (state == 0) {
+                    return count;
+                }
+                if (count <= 0) {
+                    return '已售罄';
+                } else if (count <= 5) {
+                    return '马上卖完';
+                } else if (count <= 20) {
+                    return '一般';
+                } else if (count > 20) {
+                    return '充足';
+                }
+            }
+
+            let dom = {
+                pageViewExec() {
+                    let height = 760;
+                    let pageHeight = $('.layui-layer-page[type=page]').height();
+                    let top = ($(window).height() - height) / 2;
+                    if (pageHeight > height) {
+                        $('.layui-layer-page[type=page]').css("top", top + "px");
+                        $('.layui-layer-content').css("height", height + "px");
+                    } else {
+                        let top2 = ($(window).height() - pageHeight) / 2;
+                        $('.layui-layer-page[type=page]').css("top", top2 + "px");
+                    }
+                },
+                pageView() {
+                    if (acg.Util.isPc()) {
+                        dom.pageViewExec();
+                        $('.layui-layer-page[type=page]').bind('DOMNodeInserted', function (e) {
+                            dom.pageViewExec();
+                        });
+                        $('.layui-layer-page[type=page] img').each(function () {
+                            this.onload = function () {
+                                dom.pageViewExec();
+                            }
+                        });
+                    }
+                },
+                initCategory() {
+                    let self = this;
+
+                    acg.API.category({
+                        success: function (res) {
+
+                            // 数据开始返回，隐藏骨架屏
+                            $('.skeleton-loading').hide();
+
+                            if (res.commodity_count > 0) {
+                                $('.category-list').append(`<div class="card">
+                    <div class="card-header">
+                        <p class="card-title"> ` + res.name + `</p>
+                    </div>
+                    <div class="card-block">
+                        <table class="layui-table">
+                            <tbody class="category-` + res.id + `">
+                            <tr class="head">
+                                <th><i class="fa fa-ioxhost" aria-hidden="true"></i> 商品名称</th>
+                                <th><i class="fa fa-buysellads" aria-hidden="true"></i> 单价</th>
+                                <th></th>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>`);
+
+                                let buyButton = function (item) {
+                                    if (item.delivery_way == 0 && !item.shared && item.card_count <= 0) {
+                                        return '<td>-</td>';
+                                    }
+                                    return `<td><a data-id="` + item.id + `" href="javascript:void (0);" class="commodity-click-` + res.id + `"><i class="fa fa-shopping-cart" aria-hidden="true"></i> 购买</a></td>`;
+                                }
+
+                                // 批量收集所有商品行，一次性插入DOM，减少页面重排
+                                let rowBuffer = [];
+                                acg.API.commoditys({
+                                    keywords: "",
+                                    categoryId: res.id,
+                                    success: item => {
+                                        rowBuffer.push(`<tr class="item">
+                                <td> ` + item.name + `</td>
+                                <td>￥` + (item.price) + `</td>
+                                ` + buyButton(item) + `
+                            </tr>`);
+                                    },
+                                    empty: () => {
+
+                                    },
+                                    yes: () => {
+                                        // 一次性批量插入，避免多次触发重排
+                                        if (rowBuffer.length > 0) {
+                                            $('.category-' + res.id).append(rowBuffer.join(''));
+                                            rowBuffer = [];
+                                        }
+
+                                        $('.commodity-click-' + res.id).click(function () {
+                                            let commodityId = $(this).attr("data-id");
+                                            dom.commodity(commodityId);
+                                        });
+
+                                        if (defaultCommodity && defaultCommodity != 0) {
+                                            $('.commodity-click-' + res.id + '[data-id=' + defaultCommodity + ']').trigger("click");
+                                            defaultCommodity = null;
+                                        }
+                                    }
+                                });
+                            }
+
+
+                        }
+                    });
+
+                },
+                commodity(commodityId) {
+                    acg.API.commodity({
+                        commodityId: commodityId,
+                        pay: ".pay-content",
+                        auto: {
+                            race: '.race-view',
+                            name: '.commodity_name',
+                            share_url: '.share_url',
+                            description: '.description',
+                            delivery_way: '.delivery_way',
+                            contact_type: '.contact',
+                            coupon: '.coupon',
+                            purchase_num: '.purchase_num',
+                            captcha: '.captcha',
+                            password_status: '.password',
+                            lot_status: '.lot',
+                            seckill_status: '.seckill',
+                            card: '.card_count',
+                            purchase_count: '.purchase_count',
+                            price: '.price',
+                            draft_status: '.draft_status',
+                            widget: '.widget',
+                            sku: '.sku-view'
+                        },
+                        begin: () => {
+                            __htmlInit();
+                        },
+                        success: res => {
+                            $('.qq-service').attr("href", 'https://qm.qq.com/q/r15K2RpmZq' + res.service_qq);
+                            $('.web-service').attr("href", res.service_url);
+                            //layer
+                            layer.open({
+                                type: 1,
+                                shade: [0.3, "#fff"],
+                                title: acg.Util.isPc() ? false : res.name,
+                                content: $('.open-commodity'),
+                                area: acg.Util.isPc() ? "620px" : ["100%", "100%"],
+                                success: () => {
+                                    dom.pageView();
+                                }
+                            });
+                        }
+                    });
+                }
+
+            }
+            dom.initCategory();
+
+            //初始化支付
+            acg.API.pay({
+                success: item => {
+                    if (item.handle === "#system") {
+                                            } else {
+                        $('.pay_list').append(' <a class="pay-button" onclick="acg.API.tradePerform(' + item.id + ')" style="line-height: 22px;"><img src="' + item.icon + '"> ' + item.name + '</a>');
+                    }
+                }
+            });
+        });
+    </script>
+
+</body>
+<!--start::HOOK-->
+<!--end::HOOK-->
+</html>

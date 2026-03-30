@@ -1,0 +1,1542 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatShare官网入口 - 论文撰写提示词全集 | ChatShare激活码与官方下载</title>
+  <meta name="description" content="ChatShare官网入口提供完整论文撰写提示词模板，涵盖毕业论文与SCI全章节结构。通过ChatShare网页版登录入口，使用激活码即可调用ChatGPT、Claude、Gemini等顶尖AI大模型，助力高效学术写作。支持ChatShare官方下载，源头厂家直供，激活码续费简单便捷。">
+  <meta name="keywords" content="chatshare官网入口,chatshare官网,chatshare激活码,chatshare怎么续费,chatshare官方下载,chatshare网页版登录入口,chatshare源头厂家,论文撰写提示词,SCI论文,AI写作助手">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="static/css/css2-CormorantGaramonditalwght030004000500060013001400_Outfitwght300400500600700_NotoSansSCwght300400500_swap.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --gold-dim:    rgba(201,168,76,0.45);
+      --gold-faint:  rgba(201,168,76,0.12);
+      --ink:         #ede8df;
+      --ink-dim:     rgba(220,215,205,0.5);
+      --ink-muted:   rgba(180,175,165,0.35);
+      --bg:          #07090f;
+      --surface:     rgba(255,255,255,0.028);
+      --border:      rgba(201,168,76,0.14);
+      --border-mid:  rgba(201,168,76,0.26);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Background ── */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-layer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30,50,120,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, rgba(100,70,15,0.13) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 10% 70%, rgba(20,35,100,0.28) 0%, transparent 55%);
+      animation: breathe 16s ease-in-out infinite;
+    }
+    .bg-layer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+    @keyframes breathe {
+      0%,100% { transform: scale(1); opacity: .9; }
+      50%      { transform: scale(1.04); opacity: 1; }
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 80px);
+      background: rgba(7,9,15,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .nav-logo span {
+      background: linear-gradient(130deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(220,215,205,0.4);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color .25s;
+    }
+    .nav-link:hover { color: var(--gold-light); }
+
+    /* ── Page ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 56px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 80px) clamp(28px, 4vw, 44px);
+      position: relative;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 90vw);
+      height: 320px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp .8s .1s ease forwards;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .hero-eyebrow-line.r {
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+    }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: rgba(201,168,76,0.5);
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(36px, 6vw, 70px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp .9s .2s ease forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+    .hero-sub {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: var(--ink-dim);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      max-width: 520px;
+      margin: 0 auto 16px;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .9s .45s ease forwards;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 14px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.12);
+      font-size: 11px;
+      color: rgba(220,215,205,0.5);
+      font-weight: 400;
+    }
+    .hero-badge-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 5px rgba(201,168,76,.7);
+    }
+
+    .hr-gold {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.18) 30%, rgba(201,168,76,0.18) 70%, transparent);
+    }
+
+    /* ── Quick links strip ── */
+    .quick-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 18px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp .9s .55s ease forwards;
+    }
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: rgba(220,215,205,0.55);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: all .3s;
+    }
+    .quick-link:hover {
+      border-color: var(--border-mid);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.05);
+    }
+    .quick-link svg { opacity: .6; transition: opacity .3s; }
+    .quick-link:hover svg { opacity: 1; }
+
+    /* ── Content layout ── */
+    .content-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(32px,5vw,56px) clamp(20px,5vw,60px) clamp(56px,8vw,96px);
+      opacity: 0;
+      animation: fadeUp .9s .6s ease forwards;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .section-label-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(201,168,76,0.2), transparent);
+    }
+    .section-label-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── Chapter headers ── */
+    .chapter {
+      margin-bottom: 64px;
+    }
+    .chapter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: rgba(201,168,76,0.3);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .chapter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 3.5vw, 40px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: 20px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .chapter-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .chapter-title em { font-style: italic; color: rgba(201,168,76,0.7); }
+
+    .sub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(19px, 2.4vw, 26px);
+      font-weight: 400;
+      color: rgba(232,201,122,0.75);
+      margin: 36px 0 14px;
+      letter-spacing: 0.01em;
+    }
+    .sub-title-sm {
+      font-family: 'Outfit', sans-serif;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.45);
+      margin: 24px 0 10px;
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 14px;
+      color: rgba(200,196,185,0.55);
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.025em;
+      margin: 12px 0;
+    }
+    .body-text strong {
+      color: rgba(232,201,122,0.65);
+      font-weight: 500;
+    }
+
+    /* ── Template box ── */
+    .tpl-box {
+      position: relative;
+      background: rgba(255,255,255,0.022);
+      border: 1px solid rgba(201,168,76,0.16);
+      border-radius: 16px;
+      padding: 28px 26px;
+      margin: 18px 0;
+      overflow: hidden;
+      transition: border-color .35s;
+    }
+    .tpl-box:hover { border-color: rgba(201,168,76,0.3); }
+    .tpl-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .tpl-box-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.45);
+      margin-bottom: 14px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tpl-box-label::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--gold-dim);
+    }
+    .tpl-content {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      color: rgba(200,196,185,0.6);
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.02em;
+    }
+    .tpl-content em {
+      font-style: normal;
+      color: rgba(232,201,122,0.7);
+      font-weight: 400;
+    }
+
+    /* ── Example box ── */
+    .example-box {
+      background: rgba(201,168,76,0.04);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-left: 3px solid rgba(201,168,76,0.45);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin: 14px 0;
+    }
+    .example-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.35);
+      margin-bottom: 10px;
+    }
+    .example-text {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      color: rgba(180,175,165,0.5);
+      font-weight: 300;
+      line-height: 1.95;
+      letter-spacing: 0.02em;
+    }
+
+    /* ── Directions card ── */
+    .directions {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 10px;
+      margin: 16px 0;
+    }
+    .dir-item {
+      padding: 14px 16px;
+      background: rgba(255,255,255,0.018);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 12px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12.5px;
+      color: rgba(180,175,165,0.5);
+      font-weight: 300;
+      line-height: 1.7;
+      letter-spacing: 0.02em;
+      transition: all .3s;
+    }
+    .dir-item:hover {
+      background: rgba(201,168,76,0.04);
+      border-color: rgba(201,168,76,0.2);
+      color: rgba(200,196,185,0.65);
+    }
+    .dir-item strong {
+      display: block;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      color: rgba(201,168,76,0.45);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+
+    /* ── Step list ── */
+    .step-list {
+      counter-reset: step;
+      list-style: none;
+      margin: 14px 0;
+    }
+    .step-list li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.06);
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      color: rgba(180,175,165,0.5);
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-weight: 400;
+      color: rgba(201,168,76,0.3);
+      line-height: 1.5;
+      flex-shrink: 0;
+      min-width: 26px;
+    }
+
+    /* ── Language tag ── */
+    .lang-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .lang-zh {
+      background: rgba(99,102,241,0.12);
+      border: 1px solid rgba(99,102,241,0.22);
+      color: #a5b4fc;
+    }
+    .lang-en {
+      background: rgba(59,130,246,0.1);
+      border: 1px solid rgba(59,130,246,0.2);
+      color: #93c5fd;
+    }
+
+    /* ── Ornament divider ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 52px 0;
+    }
+    .ornament-line {
+      flex: 1; max-width: 160px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15));
+    }
+    .ornament-line.r {
+      background: linear-gradient(90deg, rgba(201,168,76,0.15), transparent);
+    }
+    .ornament-diamond {
+      width: 5px; height: 5px;
+      background: rgba(201,168,76,0.35);
+      transform: rotate(45deg);
+    }
+
+    /* ── Appendix sentence list ── */
+    .sentence-list {
+      list-style: none;
+      margin: 14px 0;
+    }
+    .sentence-list li {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.05);
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      color: rgba(180,175,165,0.5);
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+    .sentence-list li:last-child { border-bottom: none; }
+    .sentence-list li::before {
+      content: '—';
+      color: rgba(201,168,76,0.25);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* ── QQ card ── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 18px 28px;
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.018);
+      margin: 24px 0;
+      transition: border-color .3s;
+    }
+    .contact-card:hover { border-color: rgba(201,168,76,0.25); }
+    .contact-label {
+      font-size: 11px;
+      color: rgba(155,160,175,0.4);
+      letter-spacing: 0.05em;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600;
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: opacity .25s;
+    }
+    .contact-link:hover { opacity: .75; }
+
+    /* ── QR image ── */
+    .qr-wrap {
+      text-align: center;
+      padding: 28px;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      margin: 0 auto;
+    }
+    .qr-wrap img {
+      max-width: 180px;
+      border-radius: 12px;
+      filter: brightness(.85) contrast(1.05);
+    }
+    .qr-wrap-caption {
+      font-size: 11px;
+      color: rgba(155,160,175,0.35);
+      letter-spacing: 0.06em;
+    }
+    .center-block {
+      display: flex;
+      justify-content: center;
+      margin: 24px 0;
+    }
+
+    /* ── SCI big img ── */
+    .sci-img {
+      width: 100%;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      padding: 16px;
+      margin: 24px 0;
+    }
+    .sci-img img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      filter: brightness(.85) contrast(1.05);
+    }
+    .sci-img-caption {
+      text-align: center;
+      margin-top: 10px;
+      font-size: 11px;
+      color: rgba(155,160,175,0.3);
+      letter-spacing: 0.05em;
+    }
+
+    /* ── Part banner for SCI section ── */
+    .part-banner {
+      text-align: center;
+      padding: 44px 20px 28px;
+    }
+    .part-banner-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.3);
+      text-transform: uppercase;
+      margin-bottom: 12px;
+    }
+    .part-banner-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4vw, 48px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+    .part-banner-title em { font-style: italic; color: var(--gold-light); }
+    .part-banner-sub {
+      font-size: 13px;
+      color: rgba(200,196,185,0.35);
+      font-weight: 300;
+      margin-top: 10px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ── Structure grid ── */
+    .struct-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1px;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      margin: 20px 0;
+    }
+    .struct-cell {
+      background: rgba(7,9,15,0.97);
+      padding: 22px 20px;
+      transition: background .3s;
+    }
+    .struct-cell:hover { background: rgba(201,168,76,0.025); }
+    .struct-cell-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.18);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .struct-cell-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      color: rgba(232,200,120,0.7);
+      margin-bottom: 6px;
+      font-weight: 400;
+    }
+    .struct-cell-desc {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 11px;
+      color: rgba(130,130,140,0.45);
+      font-weight: 300;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      background: rgba(7,9,15,0.8);
+      padding: 22px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 11px;
+      color: rgba(130,125,115,0.35);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 600px) {
+      .content-wrap { padding: 24px 16px 56px; }
+      .directions { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-layer"></div>
+
+  <nav>
+    <div class="nav-logo">ChatShare<span>.one</span></div>
+    <div class="nav-links">
+      <a href="https://qm.qq.com/q/r15K2RpmZq" class="nav-link" target="_blank">人工客服</a>
+      <a href="#top" class="nav-link">回到顶部</a>
+    </div>
+  </nav>
+
+  <div class="page" id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Academic Writing · Prompt Library</span>
+        <div class="hero-eyebrow-line r"></div>
+      </div>
+      <h1 class="hero-title">
+        论文撰写<br>
+        <em>提示词全集</em>
+      </h1>
+      <p class="hero-sub">
+        完整毕业论文提示词模板大全，按章节结构拆解<br>
+        通过 <strong>ChatShare官网入口</strong> 登录，激活码即可调用全球顶尖AI大模型<br>
+        包含写作方向与示例，建议根据学科特点调整使用
+      </p>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="hero-badge-dot"></span>GPT</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Grok</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Gemini</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Claude</div>
+      </div>
+    </section>
+
+    <!-- Quick links -->
+    <div class="quick-links">
+      <a href="index.html" target="_blank" class="quick-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        ChatShare 官网入口
+      </a>
+      <a href="https://fcai.me/chatshare" target="_blank" class="quick-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        激活码购买 / 续费
+      </a>
+      <a href="prompt.html" target="_blank" class="quick-link">
+        <svg width="12" height="12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+        科研绘图提示词
+      </a>
+    </div>
+
+    <div class="hr-gold"></div>
+
+    <!-- 关键词介绍段 -->
+    <div style="max-width:860px;margin:0 auto;padding:32px 24px 0;text-align:center;">
+      <p style="font-size:13px;color:rgba(220,215,205,0.55);line-height:1.9;letter-spacing:0.03em;">
+        本页面由 <a href="index.html" target="_blank" style="color:var(--gold);text-decoration:none;">ChatShare官网</a> 整理发布，作为 chatshare官网入口 的学术资源专区。
+        所有提示词均可通过 ChatShare网页版登录入口 直接使用——输入 ChatShare激活码 即可调用 ChatGPT、Claude、Gemini 等多款顶尖大模型。
+        需要 ChatShare官方下载 客户端或了解 ChatShare怎么续费，请前往官网查看，我们是正规 ChatShare源头厂家，价格透明、稳定可靠。
+      </p>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="content-wrap">
+
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Part Ⅰ — Undergraduate / Graduate Thesis</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <!-- 摘要 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 00</span>
+        <h2 class="chapter-title">摘要 <em>Abstract</em></h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "我的论文题目是《XXX》，请你从<em>研究问题、研究方法、研究结果、研究意义</em>四个角度完成论文摘要，要求语言学术化，用词符合XX学科（如：教育学/计算机科学）标准，避免主观表述。要求在两段内写完，800字左右"
+          </div>
+        </div>
+
+        <div class="directions">
+          <div class="dir-item"><strong>研究问题</strong>你的核心研究目标是什么？</div>
+          <div class="dir-item"><strong>研究方法</strong>用了什么工具／理论／实验方法？</div>
+          <div class="dir-item"><strong>研究结果</strong>得出了哪些关键结论？</div>
+          <div class="dir-item"><strong>研究意义</strong>对学术或实践有何贡献？</div>
+        </div>
+
+        <div class="sub-title-sm">示例 · 文科</div>
+        <div class="example-box">
+          <div class="example-text">
+            "本研究以XX地区乡村振兴政策为研究对象，采用深度访谈与政策文本分析法，揭示政策执行中基层治理的实践困境。研究发现，XX因素对政策效果产生显著影响，建议通过XX路径优化政策设计，为同类地区提供参考。"
+          </div>
+        </div>
+
+        <div class="sub-title-sm">示例 · 理工科</div>
+        <div class="example-box">
+          <div class="example-text">
+            "基于深度学习算法，本研究提出一种改进的XX模型，通过优化网络结构与训练策略，在XX数据集上实现98.7%的准确率，较传统方法提升12%。该模型可为XX领域智能化应用提供技术支持。"
+          </div>
+        </div>
+      </div>
+
+      <!-- 第一章 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 01</span>
+        <h2 class="chapter-title">绪论</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "我的研究领域是XX，当前存在【现实问题描述】，而现有文献在【具体缺口】方面研究不足。请结合【政策/行业需求】说明本研究的理论与现实意义，需引用近3年权威文献佐证。"
+          </div>
+        </div>
+
+        <div class="sub-title">1.1 研究背景与意义</div>
+        <p class="body-text">请使用学术论文的格式输出文字，不要有大量的分段或者单句话一段，且避免"首先，其次，再次"这样的表述。</p>
+
+        <div class="directions">
+          <div class="dir-item"><strong>社会背景</strong>当前领域存在哪些问题或需求？</div>
+          <div class="dir-item"><strong>研究空白</strong>现有文献未解决的痛点是什么？</div>
+          <div class="dir-item"><strong>理论意义</strong>如何补充/修正现有理论？</div>
+          <div class="dir-item"><strong>实践意义</strong>能为行业或政策提供什么帮助？</div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "随着人工智能技术的普及，数据隐私泄露事件频发（背景）。现有加密算法在动态环境下的效率不足（空白），本研究通过XX理论构建轻量化隐私保护框架（理论意义），可降低企业合规成本20%以上（实践意义）。"
+          </div>
+        </div>
+
+        <div class="sub-title">1.2 研究目标与内容</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "我的论文题目是《XXX》，请从以下角度设计研究目标与内容：<br><br>
+            1. <em>总目标</em>：用一句话概括拟解决的核心问题（需明确具体对象和预期成果）；<br>
+            2. <em>子目标</em>：拆解为3-4个递进式任务（需体现逻辑连贯性）；<br>
+            3. <em>研究内容</em>：说明如何通过具体章节实现上述目标（需与后续方法论呼应）。"
+          </div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "本研究旨在揭示XX材料在高温下的失效机制（总目标）。具体包括：(1) 构建多尺度仿真模型；(2) 验证XX参数对性能的影响；(3) 提出优化设计方案（子目标）。第二章综述现有成果，第三章阐述方法…（框架）。"
+          </div>
+        </div>
+      </div>
+
+      <!-- 第二章 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 02</span>
+        <h2 class="chapter-title">文献综述</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "请围绕【核心关键词1/2/3】，分【时间/学派/方法论】维度梳理国内外研究进展，重点对比【学者A】与【学者B】的观点差异，最后指出本研究的突破方向。"
+          </div>
+        </div>
+
+        <div class="directions">
+          <div class="dir-item"><strong>分类梳理</strong>按时间、学派、方法等维度总结</div>
+          <div class="dir-item"><strong>关键争议</strong>学界对哪些问题存在分歧？</div>
+          <div class="dir-item"><strong>研究趋势</strong>近年关注点如何演变？</div>
+          <div class="dir-item"><strong>创新点</strong>如何突破现有局限？</div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "关于XX理论的应用，A学派主张XX（观点1），而B学者强调XX（观点2），争议焦点在于XX（争议）。近五年研究转向XX方向（趋势），但缺乏对XX因素的考量（局限），本研究将结合XX方法填补这一缺口（创新）。"
+          </div>
+        </div>
+      </div>
+
+      <!-- 第三章 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 03</span>
+        <h2 class="chapter-title">理论框架与研究方法</h2>
+
+        <div class="sub-title">3.1 理论基础</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "我的研究基于【XX理论】，请解释选择该框架的原因，说明如何将其适配到【具体研究场景】，并对比传统模型的改进点。"
+          </div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "本研究以计划行为理论（TPB）为基础框架，因其能系统解释个体在XX情境下的决策机制（适配性），通过引入XX变量扩展原模型（创新适配）。"
+          </div>
+        </div>
+
+        <div class="sub-title">3.2 研究方法</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "我的研究对象是【XX群体/材料/系统】，需使用【方法1+方法2】进行研究。请设计完整技术路线图，并说明【数据采集工具】与【分析软件】的可靠性（如信效度检验）。"
+          </div>
+        </div>
+
+        <div class="directions">
+          <div class="dir-item"><strong>方法论</strong>量化/质化/混合方法的选择依据</div>
+          <div class="dir-item"><strong>数据来源</strong>实验/问卷/访谈/数据库</div>
+          <div class="dir-item"><strong>工具与步骤</strong>SPSS/Python/NVivo操作流程</div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "采用混合研究方法：首先通过问卷调查收集500份样本（量化），使用SPSS进行因子分析与回归检验；其次选取30名典型受访者开展半结构化访谈（质化），借助Nvivo12进行编码分析。"
+          </div>
+        </div>
+      </div>
+
+      <!-- 第四章 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 04</span>
+        <h2 class="chapter-title">数据统计与实证检验</h2>
+
+        <div class="sub-title">4.1 实证检验</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            请基于以下要求生成论文的实证检验部分：<br><br>
+            1. <em>研究主题</em>：[填写具体研究问题，如"数字经济对区域创新能力的影响"]<br>
+            2. <em>核心模型</em>：主模型类型（OLS回归、双重差分法、SEM等）；控制变量；需说明的假设<br>
+            3. <em>数据要求</em>：数据来源；关键变量定义；数据处理需求<br>
+            4. <em>输出格式</em>：三线表，包含变量名、系数、标准误、显著性（*p&lt;0.1, **p&lt;0.05, ***p&lt;0.01）<br>
+            5. <em>补充</em>：稳健性检验；内生性处理；意外结果分析建议
+          </div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "请生成一篇关于'绿色金融政策对企业碳排放影响'的实证检验部分。要求：使用双重差分法（DID），控制企业规模、行业特征和年份固定效应；数据来自2015-2022年A股上市公司；输出回归结果三线表，并对系数符号与显著性进行解释；补充建议稳健性检验方法。"
+          </div>
+        </div>
+
+        <div class="sub-title">4.2 成因分析</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "请根据【图1/表2】的数据，分三点陈述主要发现：①【关键结论1】；②【与文献对比】；③【意外发现】。讨论部分需结合【XX理论】解释成因，并分析局限性。"
+          </div>
+        </div>
+
+        <div class="directions">
+          <div class="dir-item"><strong>数据呈现</strong>图表与文字结合（"图1显示…"）</div>
+          <div class="dir-item"><strong>对比分析</strong>与文献结论的异同点</div>
+          <div class="dir-item"><strong>原因解释</strong>用理论/逻辑推导结果成因</div>
+          <div class="dir-item"><strong>意外发现</strong>未预料到的结果及其影响</div>
+        </div>
+      </div>
+
+      <!-- 第五章 -->
+      <div class="chapter">
+        <span class="chapter-num">Chapter 05</span>
+        <h2 class="chapter-title">结论与展望</h2>
+
+        <div class="sub-title">5.1 研究结论</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "请用'首先-其次-最后'结构总结3条核心结论，每条需包含【实证结果】与【理论/应用价值】。"
+          </div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "(1) 验证了XX因素对XX现象的显著影响；(2) 开发了XX模型并证明其有效性…（结论）。本研究为XX领域提供了新的分析工具（价值）。"
+          </div>
+        </div>
+
+        <div class="sub-title">5.2 不足与展望</div>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            "请从【理论深化】、【方法优化】、【场景拓展】三个层面提出未来研究方向，需具体说明如何改进当前不足（如样本量、时间跨度等）。"
+          </div>
+        </div>
+
+        <div class="example-box">
+          <div class="example-label">示例</div>
+          <div class="example-text">
+            "实验仅覆盖城市青年群体（不足），后续可拓展至农村中老年人群（展望）。同时，XX算法的实时性有待优化（技术局限），拟引入边缘计算进一步研究（方向）。"
+          </div>
+        </div>
+      </div>
+
+      <!-- 降重 -->
+      <div class="chapter">
+        <span class="chapter-num">Tool</span>
+        <h2 class="chapter-title">降重与改写</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            请对以下论文段落进行专业学术降重，要求：<br><br>
+            1. <em>原文定位</em>：[粘贴需要降重的具体段落]<br>
+            2. <em>核心要求</em>：保留原文所有公式、专有名词、数据结论；通过调整句子结构、拆分长句、合并短句实现重构；对高频重复词提供≥3种替代表述方案<br>
+            3. <em>特殊处理</em>：需保留的固定表述；允许使用的中英术语切换；降重强度设定：[轻度/中度/深度]<br>
+            4. <em>质量检查</em>：禁止改变专业术语定义；检查改写后的因果关系连词；输出时标注修改点
+          </div>
+        </div>
+      </div>
+
+      <!-- 附录 -->
+      <div class="chapter">
+        <span class="chapter-num">Appendix</span>
+        <h2 class="chapter-title">常用句式模板</h2>
+
+        <ul class="sentence-list">
+          <li>转折争议："尽管已有研究证实XX，但对XX的作用机制尚未达成共识。"</li>
+          <li>方法论辩护："选择XX方法，因其更适用于XX场景下的动态分析需求。"</li>
+          <li>数据解读："相关性分析显示XX与XX显著正相关（r=0.76, p&lt;0.01），支持假设H1。"</li>
+        </ul>
+
+        <div class="sub-title">使用建议</div>
+        <ol class="step-list">
+          <li>根据学科规范调整术语（社科注重理论对话，工科强调技术参数）</li>
+          <li>用"问题树"梳理逻辑：从核心问题→子问题→证据链</li>
+          <li>避免第一人称，使用"本研究""笔者"等客观表述</li>
+          <li>登录 <a href="index.html" target="_blank" style="color:var(--gold);text-decoration:none;">ChatShare网页版登录入口</a>，使用激活码一键调用多模型，让AI配合本页模板高效完成论文写作</li>
+        </ol>
+      </div>
+
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <!-- ===== SCI SECTION ===== -->
+      <div class="part-banner">
+        <div class="part-banner-num">Part Ⅱ</div>
+        <h2 class="part-banner-title">高分SCI论文<br><em>最全结构写作法</em></h2>
+        <p class="part-banner-sub">附中英文 AI 提示词</p>
+      </div>
+
+      <div class="sci-img">
+        <img src="static/picture/21.png" alt="SCI论文结构核心问题">
+      </div>
+
+      <div class="section-label" style="margin-top:44px;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Eight Core Sections</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <div class="struct-grid">
+        <div class="struct-cell"><div class="struct-cell-num">01</div><div class="struct-cell-title">Abstract</div><div class="struct-cell-desc">动机→方法→数据→结果→意义，五句话完整表达</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">02</div><div class="struct-cell-title">Introduction</div><div class="struct-cell-desc">背景→问题→现状→不足→目标→结构，六段递进</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">03</div><div class="struct-cell-title">Literature</div><div class="struct-cell-desc">论证选题有意义、方法靠谱，三层次展开</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">04</div><div class="struct-cell-title">Method</div><div class="struct-cell-desc">研究策略→数据采集→数据分析，可复现</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">05</div><div class="struct-cell-title">Data</div><div class="struct-cell-desc">来源与描述 + 数据预处理流程</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">06</div><div class="struct-cell-title">Results</div><div class="struct-cell-desc">模型验证→关键发现→对比稳健性检验</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">07</div><div class="struct-cell-title">Discussion</div><div class="struct-cell-desc">结果解释→与前人对比→理论与实践启示</div></div>
+        <div class="struct-cell"><div class="struct-cell-num">08</div><div class="struct-cell-title">Conclusion</div><div class="struct-cell-desc">结论→启示→局限→未来方向</div></div>
+      </div>
+
+      <!-- SCI 各章节 -->
+      <!-- Abstract -->
+      <div class="chapter" style="margin-top:52px;">
+        <span class="chapter-num">SCI · 01</span>
+        <h2 class="chapter-title">Abstract <em>摘要</em></h2>
+
+        <p class="body-text">整篇论文的浓缩版，让读者一分钟内明白你做了什么、为什么做、怎么做、得出了什么结果、有何意义。通常用五句话（五个层次）完整交代研究的核心内容。</p>
+
+        <div class="struct-grid" style="grid-template-columns: repeat(5,1fr); margin: 20px 0;">
+          <div class="struct-cell"><div class="struct-cell-num" style="font-size:22px;">Ⅰ</div><div class="struct-cell-title" style="font-size:14px;">Introduction</div><div class="struct-cell-desc">研究为什么做</div></div>
+          <div class="struct-cell"><div class="struct-cell-num" style="font-size:22px;">Ⅱ</div><div class="struct-cell-title" style="font-size:14px;">Method</div><div class="struct-cell-desc">研究方法</div></div>
+          <div class="struct-cell"><div class="struct-cell-num" style="font-size:22px;">Ⅲ</div><div class="struct-cell-title" style="font-size:14px;">Data</div><div class="struct-cell-desc">研究数据</div></div>
+          <div class="struct-cell"><div class="struct-cell-num" style="font-size:22px;">Ⅳ</div><div class="struct-cell-title" style="font-size:14px;">Results</div><div class="struct-cell-desc">研究结果</div></div>
+          <div class="struct-cell"><div class="struct-cell-num" style="font-size:22px;">Ⅴ</div><div class="struct-cell-title" style="font-size:14px;">Implication</div><div class="struct-cell-desc">研究意义</div></div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请根据以下信息，撰写一段结构完整、符合SCI论文规范的英文摘要。摘要应包含以下五个层次，每层次一句话，总字数控制在200–300词之间，语言学术、简洁、连贯。五个层次包括：1）研究动机（Introduction）：说明为什么要开展本研究，指出现有研究的不足或空白；2）研究方法（Method）：概述你所采用的主要研究方法或技术手段；3）研究数据（Data）：说明所使用的数据来源或实验样本；4）研究结果（Results）：简述研究中得到的核心结论或主要发现；5）研究意义（Implication）：说明这些结论在理论研究和实际应用层面的意义。请确保语气客观、句式多样、逻辑流畅，避免出现"this paper"、"we"或"I"等主语。研究主题：【<em>填写你的研究主题</em>】。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a concise and academically sound abstract (200–300 words) for an SCI-style research paper. The abstract should consist of five sentences, each corresponding to the following five components: 1) Introduction: Explain why this study was conducted, highlighting the gap or limitation in existing research. 2) Method: Summarize the main research approach or methodology used. 3) Data: Describe the type and source of data or experimental samples employed. 4) Results: Present the core findings or main results. 5) Implication: Conclude with the theoretical and practical implications of the findings. Use formal academic English with objective tone and varied sentence structures. Avoid first-person pronouns. Research topic: 【<em>insert your research topic</em>】.
+          </div>
+        </div>
+      </div>
+
+      <!-- Introduction -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 02</span>
+        <h2 class="chapter-title">Introduction <em>引言</em></h2>
+
+        <p class="body-text">引言的目标是让读者理解为什么这项研究值得做，主要回答"为什么做"、"别人做了什么"、"他们的不足是什么"、"我怎么弥补"、"论文怎么展开"。</p>
+
+        <ol class="step-list">
+          <li><strong>研究背景（Research background）</strong>：说明研究主题的重要性</li>
+          <li><strong>研究问题（Research problem）</strong>：在背景下，你的研究具体关注什么问题？</li>
+          <li><strong>研究现状（State of the art）</strong>：回顾前人已经做过哪些工作</li>
+          <li><strong>研究不足（Research gap）</strong>：分析前人研究的不足，强调你研究的必要性</li>
+          <li><strong>本研究目标与范围（Objective & Scope）</strong>：说明你的研究将如何弥补这些不足</li>
+          <li><strong>文章结构（Structure of the paper）</strong>：简单交代后续章节的安排</li>
+        </ol>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请根据以下结构，撰写一篇符合SCI论文标准的 Introduction（引言）。要求语言正式、逻辑连贯，分段自然，每个部分内容衔接紧密。引言应包含以下六个部分：1）研究背景；2）研究问题；3）研究现状；4）研究不足；5）研究目标与范围；6）文章结构。请以【<em>研究主题</em>】为核心，使用学术化表达，逻辑清晰，字数建议600–800词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a logically structured and academically rigorous Introduction section (600–800 words) for an SCI paper based on the following six components: 1) Research background 2) Research problem 3) State of the art 4) Research gap 5) Objective & Scope 6) Structure of the paper. Ensure a formal, cohesive tone and smooth transitions. Focus topic: 【<em>insert your research topic</em>】.
+          </div>
+        </div>
+      </div>
+
+      <!-- Literature Review -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 03</span>
+        <h2 class="chapter-title">Literature Review <em>文献综述</em></h2>
+
+        <p class="body-text">文献综述的作用是证明两件事：<strong>你设定的研究目标是有意义的</strong>；<strong>你所采用的方法是合理且可靠的</strong>。它包含三个层次。</p>
+
+        <div class="directions">
+          <div class="dir-item"><strong>选题论证</strong>说明你的研究问题确实有价值、有研究空白</div>
+          <div class="dir-item"><strong>可借鉴部分</strong>介绍前人工作中有哪些成果或方法值得参考</div>
+          <div class="dir-item"><strong>相邻领域</strong>其他相似领域中有哪些研究思路可以应用到你的研究</div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为主题【<em>研究主题</em>】撰写一段完整的 Literature Review（文献综述）：1）研究问题的合理性论证；2）相关研究可借鉴内容；3）相邻领域的借鉴；4）小结：指出现有文献的主要不足，并过渡到本研究的创新点。请保持语气学术、结构清晰，字数建议1000–1200词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a comprehensive Literature Review (1000–1200 words) for the topic 【<em>insert your research topic</em>】. Include: 1) Justification of the research problem 2) Insights from related studies 3) Insights from adjacent fields 4) Synthesis identifying gaps and how the present study addresses them. Maintain a formal academic tone with smooth transitions.
+          </div>
+        </div>
+      </div>
+
+      <!-- Method -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 04</span>
+        <h2 class="chapter-title">Method <em>研究方法</em></h2>
+
+        <p class="body-text">方法部分是论文的技术核心，要讲清楚你是怎么做的——让别人能完全复现你的研究。包含三个方面。</p>
+
+        <div class="directions">
+          <div class="dir-item"><strong>研究策略</strong>整体研究思路和流程，分几步进行</div>
+          <div class="dir-item"><strong>数据采集</strong>收集哪些数据、变量、数据结构是什么</div>
+          <div class="dir-item"><strong>数据分析</strong>用了哪些分析方法、模型建立验证推断对比</div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为【<em>研究主题</em>】撰写一节 Method（研究方法），要求逻辑清晰、层次分明、表达学术规范。包含：1）研究策略；2）数据采集方法；3）数据分析方法（模型建立、验证、推断和对比过程）。字数建议800–1000词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a detailed Method section (800–1000 words) for an SCI paper on 【<em>insert your research topic</em>】. Include: 1) Research strategy 2) Data collection (type, source, variables, sample) 3) Data analysis method (construction, validation, inference, comparison). Ensure formal, transparent, and replicable writing.
+          </div>
+        </div>
+      </div>
+
+      <!-- Data -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 05</span>
+        <h2 class="chapter-title">Data <em>数据</em></h2>
+
+        <div class="directions">
+          <div class="dir-item"><strong>来源与描述</strong>数据来源、时间范围、变量及描述性统计</div>
+          <div class="dir-item"><strong>数据预处理</strong>清洗、标准化、去除异常值等处理流程</div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为【<em>研究主题</em>】撰写 Data（数据部分），包含：1）数据来源与特征（来源、采集周期、样本量、变量类型、描述性统计）；2）数据预处理（缺失值、异常值、标准化；若涉及文本/图像说明特征提取方法）。字数600–800词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a clear and academically rigorous Data section (600–800 words) for 【<em>insert your research topic</em>】. Include: 1) Data source and characteristics (origin, period, sample size, variable types, descriptive statistics) 2) Data preprocessing (missing values, outliers, normalization, feature extraction if applicable).
+          </div>
+        </div>
+      </div>
+
+      <!-- Results -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 06</span>
+        <h2 class="chapter-title">Results <em>研究结果</em></h2>
+
+        <p class="body-text">核心是讲重点——只挑最关键的结论进行描述，展示模型建立与验证的结果、关键发现及统计显著性。</p>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为【<em>研究主题</em>】撰写一节 Results（结果部分）：1）模型建立与验证（拟合优度、准确率、显著性）；2）主要结果（支持/不支持假设的结果）；3）结果对比与稳健性检验。建议长度800–1000词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a well-organized Results section (800–1000 words) for 【<em>insert your research topic</em>】. Focus on key findings. Structure: 1) Model construction and validation 2) Key results (confirm/contradict hypotheses) 3) Comparative and robustness analysis. Use objective and concise language without speculative interpretation.
+          </div>
+        </div>
+      </div>
+
+      <!-- Discussion -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 07</span>
+        <h2 class="chapter-title">Discussion <em>讨论</em></h2>
+
+        <p class="body-text">讨论部分解释结果、对比分析，要解释"为什么会这样"，并与前人研究进行对比，用数据论证观点，增强论文说服力。</p>
+
+        <div class="directions">
+          <div class="dir-item"><strong>不同结果对比</strong>把你自己的不同结果之间进行比较</div>
+          <div class="dir-item"><strong>文献对比</strong>把你的结果和前人研究结果进行比较</div>
+          <div class="dir-item"><strong>差异分析</strong>对存在差异的部分进行分析解释</div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为【<em>研究主题</em>】撰写一节 Discussion：1）结果解释（主要结果的学术解读，一致/不一致原因）；2）与已有研究的比较（纵横对比，差异原因分析）；3）理论与实践意义。逻辑严密，建议1000–1200词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a critical and insightful Discussion section (1000–1200 words) for 【<em>insert your research topic</em>】. Include: 1) Interpretation of results 2) Comparison with previous studies (discuss discrepancies and causes) 3) Theoretical and practical implications. Maintain a critical yet balanced tone.
+          </div>
+        </div>
+      </div>
+
+      <!-- Conclusion -->
+      <div class="chapter">
+        <span class="chapter-num">SCI · 08</span>
+        <h2 class="chapter-title">Conclusion <em>结论</em></h2>
+
+        <p class="body-text">结论部分要收尾得体，既总结又展望，体现学术深度和思考力。包含四个子部分。</p>
+
+        <div class="directions">
+          <div class="dir-item"><strong>研究结论</strong>过程回顾 + 核心结论提炼</div>
+          <div class="dir-item"><strong>研究启示</strong>对理论发展或实践应用的贡献</div>
+          <div class="dir-item"><strong>研究局限</strong>数据范围、模型假设等不足之处</div>
+          <div class="dir-item"><strong>未来方向</strong>结合局限反思提出后续研究课题</div>
+        </div>
+
+        <div class="lang-tag lang-zh">中文提示词</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            请为【<em>研究主题</em>】撰写一节 Conclusion，包含：1）研究结论（高度概括，强调学术价值与创新）；2）研究启示（理论与实践启示）；3）研究局限（样本、方法、模型限制）；4）未来研究方向。语言简洁，字数600–800词。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Prompt</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Write a coherent and academically rigorous Conclusion section (600–800 words) for 【<em>insert your research topic</em>】. Include: 1) Conclusion (main findings, novelty, academic contributions) 2) Implication (theoretical and practical) 3) Limitation (data, methodology, model design) 4) Future study. End with a clear statement of contribution.
+          </div>
+        </div>
+      </div>
+
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <!-- 文献阅读 -->
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Part Ⅲ — Literature Reading & Optimization</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <div class="chapter" style="margin-top:36px;">
+        <span class="chapter-num">Tool · 01</span>
+        <h2 class="chapter-title">归纳文献核心要点</h2>
+
+        <ul class="sentence-list">
+          <li>请提炼一下这篇文章的核心观点。</li>
+          <li>这篇文章的主题是什么？</li>
+          <li>作者在哪些方面提供了新颖的见解？</li>
+          <li>这篇文章主要采用了什么研究方法？</li>
+          <li>文献中的数据支持了哪些观点？</li>
+          <li>作者使用了哪些重要论据来支持观点？</li>
+          <li>这篇文章对该领域有何贡献？</li>
+          <li>能帮我找出文献的论文陈述吗？</li>
+          <li>这篇文章的主要结论是什么？</li>
+        </ul>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-num">Tool · 02</span>
+        <h2 class="chapter-title">总结论文内容</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-content">
+            作为[xx]领域的研究专家，阅读并总结标题为[xx]的研究论文的核心内容。请提供一个简洁明了的摘要，概括研究的主要发现、方法、结果及其意义。确保摘要以易于非专业读者理解的方式撰写，同时保留原论文的核心见解和细微差别。
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-num">Tool · 03</span>
+        <h2 class="chapter-title">深入阅读某篇论文</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-content">
+            您现在作为「」领域的世界顶级学术专家，想详细阅读并深入这篇论文（见XXX.PDF），首先请用 1000-1500 字左右的篇幅对论文进行深入解读，多引用细节内容、关键数据和实验结果。然后从以下几个方面进行详细解读：<br><br>
+            1. 论文的研究目标是什么？想要解决什么实际问题？对产业发展有何意义？<br>
+            2. 论文提出了哪些新的思路、方法或模型？与之前的方法相比有什么特点和优势？<br>
+            3. 论文通过什么实验来验证所提出方法的有效性？实验是如何设计的？<br>
+            4. 结合该领域的当前学术理解，未来有哪些值得进一步探索的问题和挑战？<br>
+            5. 从批判的视角看，这篇论文存在哪些不足及缺失？<br>
+            6. 我应该从这篇论文中重点学什么？有哪些启发？需要补充了解哪些背景知识？
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-num">Tool · 04</span>
+        <h2 class="chapter-title">提取论文术语表</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-content">
+            假设我是人工智能专业的研究生，请你扮演我的论文导师，根据这篇论文，生成一个适合我学习的术语表，这个术语表应该包括三列：<em>术语、定义、和论文中的标题索引</em>。术语是指作者提出的核心术语，或者相对我的知识水平可能不够理解的专业条目。定义应该符合论文原意，同时尽可能用平白的语言充分解释。论文中的标题索引是指这个术语在论文中出现的段落位置所在的标题。请从整篇文章中提取符合要求的术语，并将输出格式化为 Markdown 表格。
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-num">Tool · 05</span>
+        <h2 class="chapter-title">文献比较阅读</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-content">
+            对于[研究问题]这个问题，这两篇研究的观点是什么？将这两篇研究对以下方面进行对比分析：1. 研究目的；2. 理论框架；3. 实验设计；4. 主要发现；5. 应用和意义；6. 研究局限。
+          </div>
+        </div>
+      </div>
+
+      <div class="chapter">
+        <span class="chapter-num">Tool · 06</span>
+        <h2 class="chapter-title">整理文献</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-content">
+            帮我整理一下关于【<em>  </em>】领域的研究论文，要求SCI论文级别，要求发表时间为【<em></em>】年，不低于5篇，并且标注原文地址供我参考。
+          </div>
+        </div>
+      </div>
+
+      <!-- 论文优化 -->
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Part Ⅳ — Writing Optimization</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <div class="chapter" style="margin-top:36px;">
+        <span class="chapter-num">Optimize</span>
+        <h2 class="chapter-title">论文优化提示词</h2>
+
+        <div class="sub-title">降低AI表达特征</div>
+        <div class="lang-tag lang-zh">中文指令</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            尽量不用模式化的连接词（"首先""其次""然后"），用比较自然的、连贯的过渡方法，简单句、复合句以及插入语混合使用，使得文章层次感更强一些，并且避免连续几个短句或者整齐的句子，当叙述数据或结论的时候，增加一些相关的背景或者是自己的观察情况，这样就会显得更加具体，也更接近实际的研究环境，通过提问或者是小结来完成段落之间的自然过渡。
+          </div>
+        </div>
+        <div class="lang-tag lang-en">English Instruction</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Avoid formulaic transitions like "First," "next," "then"; instead, use more natural and connected links. Blend together simple sentence structures, compound sentences and embedded sentences to add variety and depth. When presenting data/conclusions include background/personal observations so it feels more specific. Use questions or quick summaries as smooth moves from paragraph to paragraph.
+          </div>
+        </div>
+
+        <div class="sub-title" style="margin-top:36px;">原创事实表述</div>
+        <div class="lang-tag lang-zh">中文指令</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            所有内容必须真实可靠，不要虚构，如果不知道就说"不知道"，不要照搬别人的话，要改成自己的话（除了引用部分，引用部分要按照MLA格式），写作风格介于学术书面语和口语之间，使用短句，每个句子都要有主语，把不是日常用语的词都换成简单的词，使用基本过渡词。
+          </div>
+        </div>
+        <div class="lang-tag lang-en">English Instruction</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            Use facts only; don't make up information. If unsure, say "I don't know." Reorganize the given info in your personal phrasing instead of just repeating word for word (quotation should be quoted using MLA). Adopt a tone between academic writing and spoken language. Utilize brief sentences with clearly defined subject matter. Substitute non-common words with simple ones.
+          </div>
+        </div>
+
+        <div class="sub-title" style="margin-top:36px;">段落衔接 · 逻辑过渡 · 结构简化 · 细节补充</div>
+        <div class="tpl-box">
+          <div class="tpl-box-label">段落衔接</div>
+          <div class="tpl-content">重新整理段落的顺序，让文章的思路更加清晰，内容层层递进，统一对全文的语气，使文章的语气保持一致，调整段落之间的过渡，避免出现段落之间跳跃的情况，保证每一段开头与结尾与前后文衔接紧密。</div>
+        </div>
+        <div class="tpl-box" style="margin-top:8px;">
+          <div class="tpl-box-label">逻辑过渡</div>
+          <div class="tpl-content">强化句子与段落间的联系，用相同的过渡形式，表明因果关系或者时间顺序，如果需要的话，改变内容的安排，从而改善阅读感受以及逻辑连贯性。</div>
+        </div>
+        <div class="tpl-box" style="margin-top:8px;">
+          <div class="tpl-box-label">结构简化</div>
+          <div class="tpl-content">删掉重复表达的信息，缩减句子的长度，让语句更简洁，对于那些过于啰嗦或者内容重复的句子要进行精简，保证每一个句子只有一个主要意思。</div>
+        </div>
+        <div class="tpl-box" style="margin-top:8px;">
+          <div class="tpl-box-label">细节补充</div>
+          <div class="tpl-content">在必要时添加细节、案例或者数据来充实，防止含糊不清，改善描述的生动性，让文章更吸引人。</div>
+        </div>
+      </div>
+
+      <!-- 高阶降AI -->
+      <div class="chapter">
+        <span class="chapter-num">Advanced</span>
+        <h2 class="chapter-title">高阶降AI指令</h2>
+
+        <div class="lang-tag lang-zh">中文指令</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            你是一名经验丰富的学术编辑与语言专家，擅长对 SCI 体系论文进行中文学术语言润色。你的任务是对我提供的论文文本进行改写与优化：在不改变原意、事实信息、论证逻辑、研究结论、专业术语与核心结构的前提下，提升文本的可读性、连贯性与表达自然度，使其更符合中文母语者的学术写作习惯与期刊投稿标准。<br><br>
+            改写时请按以下顺序执行：<em>① 句式与节奏优化</em>（避免连续使用同一类句型，补充恰当连接过渡）；<em>② 措辞自然化与去重复</em>（替换模板化重复或过度正式的表达）；<em>③ 适度增强论证解释性衔接</em>（不引入新观点，加入简短过渡性推断短语）；<em>④ 段落层面微调</em>（调整段落长度与句子顺序，不重构框架）。篇幅允许±10%波动。输出时仅提供改写后的完整文本本身。<br><br>
+            输入为：以下是需要润色改写的论文内容——[在此粘贴论文内容]。
+          </div>
+        </div>
+
+        <div class="lang-tag lang-en">English Instruction</div>
+        <div class="tpl-box">
+          <div class="tpl-content">
+            You are an experienced academic editor and language specialist with expertise in polishing Chinese academic writing for SCI-indexed papers. Your task is to rewrite and optimize the manuscript text I provide. Without changing the original meaning, factual information, argumentative logic, research conclusions, technical terminology, or core structure, improve readability, coherence, and naturalness of expression.<br><br>
+            Follow these rules in order: <em>① Sentence structure and rhythm optimization</em> (alternate sentence types, add appropriate connectors); <em>② Naturalizing wording and reducing repetition</em> (replace formulaic expressions); <em>③ Moderate strengthening of explanatory linkage</em> (add brief transitional phrases without new claims); <em>④ Light paragraph-level adjustments</em> (optimize flow, do not reconstruct framework). Length variation within ±10%. For output, provide only the fully rewritten text itself.<br><br>
+            Input: "Below is the manuscript text that needs polishing — [paste the manuscript text here]."
+          </div>
+        </div>
+      </div>
+
+      <!-- QQ -->
+      <div class="contact-card">
+        <span class="contact-label">有任何问题？咨询人工客服：</span>
+        <a href="https://qm.qq.com/q/r15K2RpmZq" target="_blank" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+          QQ：1095492358
+        </a>
+      </div>
+
+
+
+    </div>
+    <!-- /content-wrap -->
+
+  </div>
+  <!-- /page -->
+
+  <footer>
+    <p>© ChatShare.one &nbsp;·&nbsp; 论文撰写提示词 &nbsp;·&nbsp; ChatShare官网入口 &nbsp;|&nbsp; 激活码购买 &nbsp;|&nbsp; ChatShare源头厂家</p>
+  </footer>
+
+</body>
+</html>

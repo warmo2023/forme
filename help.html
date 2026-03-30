@@ -1,0 +1,782 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatShare官网入口 - 登录教程与各模型使用指南 | 激活码购买续费</title>
+  <meta name="description" content="ChatShare官网入口完整使用指南：包含ChatShare网页版登录入口教程、ChatShare激活码购买与续费说明、ChatShare官方下载方式。源头厂家直供，支持ChatGPT、Claude、Gemini、Grok等多模型一键切换，国内网络直连，无次数限制。">
+  <meta name="keywords" content="chatshare官网入口,chatshare官网,chatshare激活码,chatshare怎么续费,chatshare官方下载,chatshare网页版登录入口,chatshare源头厂家,chatgpt使用教程,claude使用教程,AI模型使用指南">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="static/css/css2-CormorantGaramonditalwght030004000500060013001400_Outfitwght300400500600700_NotoSansSCwght300400500_swap.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --gold-dim:    rgba(201,168,76,0.45);
+      --gold-faint:  rgba(201,168,76,0.12);
+      --ink:         #ede8df;
+      --ink-dim:     rgba(220,215,205,0.6);
+      --ink-muted:   rgba(180,175,165,0.4);
+      --bg:          #07090f;
+      --surface:     rgba(255,255,255,0.028);
+      --border:      rgba(201,168,76,0.14);
+      --border-mid:  rgba(201,168,76,0.22);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Background ── */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-layer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30,50,120,0.5) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 90%, rgba(100,70,15,0.15) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 10% 70%, rgba(20,35,100,0.3) 0%, transparent 55%);
+      animation: breathe 16s ease-in-out infinite;
+    }
+    .bg-layer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+    @keyframes breathe {
+      0%,100% { transform: scale(1); opacity: .9; }
+      50%      { transform: scale(1.04); opacity: 1; }
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 80px);
+      background: rgba(7,9,15,0.75);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      text-decoration: none;
+    }
+    .nav-logo span {
+      background: linear-gradient(130deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+    }
+    .nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(220,215,205,0.45);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      transition: color .25s;
+    }
+    .nav-link:hover { color: var(--gold-light); }
+
+    /* ── Page ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 56px;
+      flex: 1;
+    }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center;
+      padding: clamp(40px, 6vw, 72px) clamp(20px, 5vw, 80px) clamp(20px, 3vw, 32px);
+      position: relative;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 90vw);
+      height: 260px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+      opacity: 0;
+      animation: fadeUp .8s .1s ease forwards;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .hero-eyebrow-line.r { background: linear-gradient(90deg, var(--gold-dim), transparent); }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: rgba(201,168,76,0.5);
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(28px, 4.5vw, 54px);
+      font-weight: 300;
+      line-height: 1.18;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      opacity: 0;
+      animation: fadeUp .9s .2s ease forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: 13px;
+      color: var(--ink-muted);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      opacity: 0;
+      animation: fadeUp .9s .3s ease forwards;
+    }
+
+    /* ── Quick links ── */
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 10px;
+      padding: clamp(20px,3vw,32px) clamp(20px,5vw,80px);
+      opacity: 0;
+      animation: fadeUp .9s .4s ease forwards;
+    }
+    .ql-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 16px;
+      border-radius: 100px;
+      border: 1px solid rgba(201,168,76,0.18);
+      background: rgba(201,168,76,0.045);
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(232,201,122,0.75);
+      text-decoration: none;
+      letter-spacing: 0.03em;
+      transition: all .25s;
+    }
+    .ql-chip:hover {
+      background: rgba(201,168,76,0.1);
+      border-color: rgba(201,168,76,0.35);
+      color: var(--gold-light);
+      transform: translateY(-2px);
+    }
+    .ql-chip svg { opacity: 0.6; flex-shrink: 0; }
+
+    .hr-gold {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.2) 30%, rgba(201,168,76,0.2) 70%, transparent);
+    }
+
+    /* ── Main content ── */
+    .content-wrap {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: clamp(40px,6vw,72px) clamp(20px,5vw,40px) clamp(56px,8vw,96px);
+      opacity: 0;
+      animation: fadeUp .9s .5s ease forwards;
+    }
+
+    /* Section label */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .section-label-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(201,168,76,0.2), transparent);
+    }
+    .section-label-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── Tip / Warning blocks ── */
+    .tip-block, .warn-block {
+      display: flex;
+      gap: 0;
+      align-items: stretch;
+      margin: 24px 0;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid;
+    }
+    .tip-block {
+      border-color: rgba(99,102,241,0.2);
+      background: rgba(99,102,241,0.05);
+    }
+    .warn-block {
+      border-color: rgba(245,158,11,0.2);
+      background: rgba(245,158,11,0.04);
+    }
+    .tip-bar  { width: 3px; flex-shrink: 0; background: linear-gradient(180deg, #6366f1, rgba(99,102,241,0.15)); }
+    .warn-bar { width: 3px; flex-shrink: 0; background: linear-gradient(180deg, #f59e0b, rgba(245,158,11,0.15)); }
+    .block-body {
+      padding: 14px 18px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      line-height: 1.9;
+      letter-spacing: 0.02em;
+    }
+    .tip-block  .block-body { color: rgba(180,185,240,0.85); }
+    .warn-block .block-body { color: rgba(240,200,140,0.8); }
+    .block-body strong { font-weight: 600; opacity: 1; }
+
+    /* ── Numbered sections ── */
+    .doc-section {
+      margin-bottom: 48px;
+    }
+    .doc-section-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 20px;
+    }
+    .section-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 13px;
+      color: rgba(201,168,76,0.35);
+      letter-spacing: 0.1em;
+      padding-top: 6px;
+      flex-shrink: 0;
+      width: 28px;
+    }
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(20px, 2.8vw, 30px);
+      font-weight: 400;
+      color: #e8e2d4;
+      line-height: 1.25;
+      letter-spacing: -0.01em;
+      border-left: 2px solid rgba(201,168,76,0.3);
+      padding-left: 14px;
+    }
+    .section-title em { font-style: italic; color: var(--gold-light); }
+
+    .doc-body {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      line-height: 2;
+      color: rgba(200,196,185,0.55);
+      font-weight: 300;
+      letter-spacing: 0.025em;
+    }
+    .doc-body p { margin-bottom: 12px; }
+    .doc-body strong {
+      color: rgba(232,201,122,0.75);
+      font-weight: 500;
+    }
+    .doc-body a {
+      color: rgba(147,197,253,0.8);
+      text-decoration: none;
+      border-bottom: 1px solid rgba(147,197,253,0.25);
+      transition: all .2s;
+    }
+    .doc-body a:hover {
+      color: #93c5fd;
+      border-bottom-color: rgba(147,197,253,0.6);
+    }
+
+    /* step list */
+    .step-list {
+      list-style: none;
+      margin: 16px 0;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .step-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      color: rgba(200,196,185,0.55);
+      line-height: 1.85;
+    }
+    .step-num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 22px; height: 22px;
+      border-radius: 50%;
+      border: 1px solid rgba(201,168,76,0.25);
+      background: rgba(201,168,76,0.06);
+      font-family: 'Outfit', sans-serif;
+      font-size: 10px;
+      font-weight: 600;
+      color: rgba(201,168,76,0.6);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* inline code */
+    .inline-code {
+      font-family: ui-monospace, 'Cascadia Code', Menlo, monospace;
+      font-size: 12px;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.14);
+      border-radius: 6px;
+      padding: 2px 8px;
+      color: var(--gold-light);
+      letter-spacing: 0.03em;
+    }
+
+    /* method card */
+    .method-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 20px 0;
+    }
+    @media (max-width: 600px) { .method-grid { grid-template-columns: 1fr; } }
+    .method-card {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: var(--surface);
+      padding: 22px 20px;
+      transition: all .35s;
+    }
+    .method-card:hover {
+      border-color: var(--border-mid);
+      background: rgba(255,255,255,0.04);
+    }
+    .method-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.45);
+      margin-bottom: 8px;
+    }
+    .method-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: #e0dbd0;
+      margin-bottom: 8px;
+    }
+    .method-desc {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12px;
+      color: rgba(150,155,170,0.5);
+      line-height: 1.85;
+    }
+
+    /* image box */
+    .img-box {
+      margin: 20px 0;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 14px;
+      padding: 12px;
+      background: rgba(255,255,255,0.02);
+      text-align: center;
+    }
+    .img-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
+    }
+    .img-caption {
+      margin-top: 8px;
+      font-size: 11px;
+      color: rgba(150,155,170,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    /* model tag */
+    .model-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 3px 10px;
+      border-radius: 100px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-right: 6px;
+      margin-bottom: 6px;
+    }
+    .tag-gpt   { background: rgba(99,102,241,0.12); border: 1px solid rgba(99,102,241,0.25); color: #a5b4fc; }
+    .tag-claude{ background: rgba(245,158,11,0.1);  border: 1px solid rgba(245,158,11,0.22); color: #fcd34d; }
+    .tag-gemini{ background: rgba(59,130,246,0.1);  border: 1px solid rgba(59,130,246,0.22); color: #93c5fd; }
+    .tag-image { background: rgba(236,72,153,0.1);  border: 1px solid rgba(236,72,153,0.22); color: #f9a8d4; }
+    .tag-video { background: rgba(20,184,166,0.1);  border: 1px solid rgba(20,184,166,0.22); color: #5eead4; }
+
+    /* divider */
+    .section-divider {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.1) 30%, rgba(201,168,76,0.1) 70%, transparent);
+      margin: 40px 0;
+    }
+
+    /* contact */
+    .contact-bar {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 14px 24px;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 12px;
+      background: rgba(255,255,255,0.018);
+      margin-top: 40px;
+      transition: border-color .3s;
+    }
+    .contact-bar:hover { border-color: rgba(201,168,76,0.2); }
+    .contact-label { font-size: 11px; color: rgba(155,160,175,0.4); }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; font-weight: 600;
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: opacity .25s;
+    }
+    .contact-link:hover { opacity: 0.75; }
+    .contact-hours {
+      font-size: 10px;
+      color: rgba(155,160,175,0.35);
+      border: 1px solid rgba(201,168,76,0.15);
+      background: rgba(201,168,76,0.04);
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      background: rgba(7,9,15,0.8);
+      padding: 20px;
+      text-align: center;
+      position: relative;
+      z-index: 1;
+    }
+    footer p {
+      font-size: 11px;
+      color: rgba(130,125,115,0.4);
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-layer"></div>
+
+  <nav>
+    <a href="index.html" class="nav-logo">ChatShare<span>.one</span></a>
+    <div class="nav-links">
+      <a href="https://node1.chatshare.biz/list/" target="_blank" class="nav-link">登录入口</a>
+      <a href="https://fcai.me/chatshare" target="_blank" class="nav-link">激活码购买</a>
+      <a href="https://qm.qq.com/q/r15K2RpmZq" target="_blank" class="nav-link">人工客服</a>
+    </div>
+  </nav>
+
+  <div class="page">
+
+    <!-- Hero -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Help Center · 使用指南</span>
+        <div class="hero-eyebrow-line r"></div>
+      </div>
+      <h1 class="hero-title">
+        ChatShare<br> <em>使用指南</em>
+      </h1>
+      <p class="hero-sub">ChatShare官网入口 · 网页版登录 · 激活码使用 · 各模型教程</p>
+    </section>
+
+    <!-- Quick links -->
+    <div class="quick-links">
+      <a href="index.html" target="_blank" class="ql-chip">
+        <svg width="12" height="12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path></svg>
+        ChatShare 官网入口
+      </a>
+      <a href="https://fcai.me/chatshare" target="_blank" class="ql-chip">
+        <svg width="12" height="12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        激活码购买 / 续费
+      </a>
+      <a href="papre.html" target="_blank" class="ql-chip">
+        <svg width="12" height="12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        论文撰写提示词
+      </a>
+      <a href="prompt.html" target="_blank" class="ql-chip">
+        <svg width="12" height="12" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zm0 0h12a2 2 0 002-2v-4a2 2 0 00-2-2h-2.343M11 7.343l1.657-1.657a2 2 0 012.828 0l2.829 2.829a2 2 0 010 2.828l-8.486 8.485M7 17h.01"></path></svg>
+        科研绘图提示词
+      </a>
+    </div>
+
+    <div class="hr-gold"></div>
+
+    <!-- Main content -->
+    <div class="content-wrap">
+
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">User Guide</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <!-- Intro -->
+      <div class="doc-body" style="margin-bottom: 24px;">
+        <p>欢迎使用 <strong>ChatShare官网</strong>！本指南将帮助您快速上手 <strong>ChatShare网页版登录入口</strong>，完成激活码绑定与各模型使用。我们是正规 <strong>ChatShare源头厂家</strong>，集成 <strong>ChatGPT、Claude、Grok、Gemini、Banana、Sora</strong> 等多种模型，一键切换，国内网络直接访问，电脑、手机、平板均可用。真正做到了单人独享，模型通用，无次数限制，聊天记录隔离，拒绝拼车！</p>
+      </div>
+
+      <div class="tip-block">
+        <div class="tip-bar"></div>
+        <div class="block-body">本系统已同步更新至最新版 <strong>GPT</strong>，最新上线 gemini 专区（可用 Banana），所有模型均无次数限制，欢迎使用！</div>
+      </div>
+
+      <!-- Section 1 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">01</span>
+          <div class="section-title">系统地址</div>
+        </div>
+        <div class="doc-body">
+          <p><strong>ChatShare 官网入口</strong>登录地址：<span class="inline-code"><a href="index.html" target="_blank">chatshare.ren</a></span></p>
+          <p style="margin-top:10px;font-size:13px;color:var(--ink-dim);">支持网页版直接使用，也可前往 <a href="index.html" target="_blank" style="color:var(--gold);">ChatShare官方下载</a> 客户端，覆盖 Windows、Mac、iOS、Android 全平台。</p>
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 2 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">02</span>
+          <div class="section-title">ChatShare激活码购买、激活与续费</div>
+        </div>
+        <div class="doc-body">
+          <p>购买地址：<span class="inline-code"><a href="https://fcai.me/chatshare" target="_blank">fcai.me/chatshare</a></span>（自助提取 <strong>ChatShare 激活码</strong>,如遇网站打不开或支付问题，请加 <a href="https://qun.qq.com/universal-share/share?ac=1&authKey=mcc%2FX%2Fz7RMGYIRzIVpg8%2FZJVfWX0K1%2F75T0UxBGZ%2BVRkoQ6pxhgUgo7ATOg%2FWsdp&busi_data=eyJncm91cENvZGUiOiIxMDk1NDkyMzU4IiwidG9rZW4iOiIrOG5aeEVTdERFZWVUOHpyQjNSbEl0TXpHOVFGbHdlR1NTY1ZuMFJzd2FBSktlK0lnbjJmOEVLYzFUTG5rSFBLIiwidWluIjoiNTM0NDkzOTQ3In0%3D&data=r2P5ODbUq3UhszK7X2rtHqOWJhXHkHOn7XldeA_zuXTVNQ2SRIK94V-N9HACobJWns_jIayjmc19ivcaSLXu0Q&svctype=4&tempid=h5_group_info" target="_blank">人工客服：1095492358</a>）</p>
+          <p style="margin-top:8px;"><strong>ChatShare 怎么续费？</strong>老用户登录账号后，前往 <a href="https://fcai.me/chatshare" target="_blank" style="color:var(--gold);">fcai.me/chatshare</a> 下单新激活码，激活码支持叠加续期，操作简单便捷。</p>
+          <p style="margin-top:8px;"><strong>7天及以上</strong>额外赠送 Gemini 镜像；<strong>30天及以上</strong>额外赠送 Claude Max 镜像、Gemini 镜像及 Midjourney 镜像。</p>
+        </div>
+        <ul class="step-list" style="margin-top:16px;">
+          <li><span class="step-num">①</span><span>首次用户：在本系统自行注册账号，下单激活码，订单页拿到激活码后输入激活</span></li>
+          <li><span class="step-num">②</span><span>老用户：登录已有账号，下单激活码，订单页拿到激活码后输入激活，激活码可叠加使用</span></li>
+          <li><span class="step-num">③</span><span>本店也可代开或代充官网 GPT Plus/Pro 账号，稳定不封号，包售后，可开票，官网直登（需自备魔法工具）</span></li>
+        </ul>
+        <div class="img-box" style="margin-top:20px;">
+          <img src="static/picture/1.jpg" alt="使用激活码界面">
+        </div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 3 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">03</span>
+          <div class="section-title">ChatShare网页版登录入口与使用教程</div>
+        </div>
+        <div class="doc-body">
+          <p>服务专区各入口说明：</p>
+          <p><strong>自选 Plus 入口</strong>：直连 GPT 官网，右侧手动选择节点登录，次数用完后点击换号选择其他节点，靠前的节点聪明不降智。</p>
+          <p><strong>新版 Plus 入口</strong>：聚合 GPT、Gemini、Claude、Grok、Sora、Banana、即梦等诸多模型，左上角切换模型即可使用，无需来回换号。</p>
+          <p><strong>Gemini 专区</strong>：Gemini 官网镜像版（含 Banana 模型）</p>
+          <p><strong>Claude 专区</strong>：Claude 官网镜像版，每天下午会上架 Claude Max 供使用。</p>
+          <p><strong>Midjourney 专区</strong>：Midjourney 官网镜像版</p>
+        </div>
+
+        <div class="warn-block" style="margin: 20px 0;">
+          <div class="warn-bar"></div>
+          <div class="block-body">本系统不保存聊天记录，所有记录均保存在底层官网账号上，若底层账号被封号则记录会丢失，<strong>重要聊天记录请务必导出到本地！</strong></div>
+        </div>
+
+        <div class="img-box"><img src="static/picture/2.png" alt="服务专区界面"></div>
+        <div class="img-box"><img src="static/picture/3.png" alt="模型选择界面"></div>
+        <div class="img-box"><img src="static/picture/4.png" alt="输入网址"></div>
+        <div class="img-box"><img src="static/picture/5.png" alt="登录账号"></div>
+        <div class="img-box"><img src="static/picture/6.png" alt="选择入口"></div>
+        <div class="img-box"><img src="static/picture/7.png" alt="界面介绍"></div>
+        <div class="img-box"><img src="static/picture/8.png" alt="模型切换"></div>
+        <div class="img-box"><img src="static/picture/9.png" alt="图片9"></div>
+        <div class="img-box"><img src="static/picture/10.png" alt="其他设置"></div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 4 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">04</span>
+          <div class="section-title">不降智使用 <em>GPT</em> 的两种方法</div>
+        </div>
+
+        <div class="method-grid">
+          <div class="method-card">
+            <div class="method-label">方法一</div>
+            <div class="method-name">自选 Plus 系统</div>
+            <div class="method-desc">支持上传各种类型文档（≤50M）；任意选择 team/plus 节点进入；左上角切换 GPT 模型；若节点降智点击换号切换。</div>
+          </div>
+          <div class="method-card">
+            <div class="method-label">方法二</div>
+            <div class="method-name">新版 / 备用 Plus</div>
+            <div class="method-desc">左上角切换模型，选择 GPT 系列即可；补充满血不降智 API 模型：<span class="inline-code" style="font-size:11px;">GPT</span></div>
+          </div>
+        </div>
+
+        <div class="img-box"><img src="static/picture/11.png" alt="自选plus节点"></div>
+        <div class="img-box"><img src="static/picture/12.png" alt="图片12"></div>
+        <div class="img-box"><img src="static/picture/13.png" alt="新版Plus模型选择"></div>
+        <div class="img-box"><img src="static/picture/14.png" alt="图片14"></div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 5 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">05</span>
+          <div class="section-title">不降智出图的 <em>三种模型</em></div>
+        </div>
+
+        <div class="doc-body" style="margin-bottom: 20px;">
+          <span class="model-tag tag-gpt">GPT 出图</span>
+          <span class="model-tag tag-gemini">Banana</span>
+          <span class="model-tag tag-gpt">GPT</span>
+        </div>
+
+        <div class="doc-body">
+          <p><strong>模型一：GPT</strong>（不支持连续对话，1个任务新建1个聊天）</p>
+        </div>
+        <ul class="step-list" style="margin: 12px 0 20px;">
+          <li><span class="step-num">1</span><span>首页登录，左下角服务专区（新版 Plus 入口）进入</span></li>
+          <li><span class="step-num">2</span><span>模型选择 <span class="inline-code" style="font-size:11px;">GPT</span>（在 sora 系列模型里）</span></li>
+          <li><span class="step-num">3</span><span>上传图片（不能上传文件），输入文字，需手动指定比例：1:1、3:2横版 或 2:3竖版</span></li>
+          <li><span class="step-num">4</span><span>一次出多张图：输入「一次生成N张图」（目前最多一次2张）</span></li>
+        </ul>
+        <div class="img-box"><img src="static/picture/15.png" alt="GPT界面"></div>
+        <div class="img-box"><img src="static/picture/16.png" alt="GPT出图效果"></div>
+
+        <div class="doc-body" style="margin-top: 24px;">
+          <p><strong>模型二：Banana</strong></p>
+        </div>
+        <ul class="step-list" style="margin: 12px 0 20px;">
+          <li><span class="step-num">1</span><span>首页登录，左下角服务专区（gemini 专区 或 新版 Plus 入口：Banana）进入</span></li>
+          <li><span class="step-num">2</span><span>模型选择 <span class="inline-code" style="font-size:11px;">Banana</span>（在谷歌系列模型里）</span></li>
+          <li><span class="step-num">3</span><span>上传图片，输入文字（如中文提示词不出图，改用英文提示词）</span></li>
+        </ul>
+        <div class="img-box"><img src="static/picture/17.png" alt="Gemini专区"></div>
+        <div class="img-box"><img src="static/picture/18.png" alt="新版plus Banana模型"></div>
+
+        <div class="doc-body" style="margin-top: 24px;">
+          <p><strong>模型三：GPT</strong>（支持连续对话）</p>
+        </div>
+        <ul class="step-list" style="margin: 12px 0 20px;">
+          <li><span class="step-num">1</span><span>首页登录，左下角服务专区（推荐自选入口，新版入口较慢）进入</span></li>
+          <li><span class="step-num">2</span><span>模型选择 <span class="inline-code" style="font-size:11px;">GPT</span></span></li>
+          <li><span class="step-num">3</span><span>上传图片，输入文字即可</span></li>
+        </ul>
+        <div class="img-box"><img src="static/picture/19.png" alt="GPT.2出图"></div>
+      </div>
+
+      <div class="section-divider"></div>
+
+      <!-- Section 6 -->
+      <div class="doc-section">
+        <div class="doc-section-head">
+          <span class="section-num">06</span>
+          <div class="section-title">出视频的模型</div>
+        </div>
+
+        <div class="doc-body" style="margin-bottom: 16px;">
+          <span class="model-tag tag-video">Sora</span>
+          <span class="model-tag tag-video">Gemini Veo</span>
+          <span class="model-tag tag-video">即梦</span>
+        </div>
+
+        <ul class="step-list" style="margin-bottom: 20px;">
+          <li><span class="step-num">1</span><span>首页登录，左下角服务专区（新版 Plus 入口）进入</span></li>
+          <li><span class="step-num">2</span><span>模型选择 Sora、Gemini Veo 或即梦模型</span></li>
+          <li><span class="step-num">3</span><span>支持文生视频和图生视频，竖版 / 横版视频均可</span></li>
+          <li><span class="step-num">4</span><span>若遇到提示违反相关政策，请更换提示词或图片</span></li>
+        </ul>
+      </div>
+      <!-- QQ -->
+      <div class="contact-bar">
+        <span class="contact-label">有任何问题？咨询人工客服：</span>
+        <a href="https://qm.qq.com/q/r15K2RpmZq" target="_blank" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+          QQ：1095492358
+        </a>
+      </div>
+
+
+
+    </div>
+    <!-- /content-wrap -->
+
+  </div>
+  <!-- /page -->
+
+  <footer>
+    <p>© ChatShare.one &nbsp;·&nbsp; 使用指南 &nbsp;·&nbsp; ChatShare官网入口 &nbsp;|&nbsp; 激活码购买续费 &nbsp;|&nbsp; ChatShare源头厂家</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,1026 @@
+﻿<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ChatShare官网入口 - 科研绘图与技术路线图提示词全集 | 激活码官方下载</title>
+  <meta name="description" content="ChatShare官网提供完整科研绘图与技术路线图AI提示词，涵盖BioRender风格机制图、SVG技术路线图、DrawIO可编辑导出等工作流。通过ChatShare网页版登录入口输入激活码，即可调用Banana、GPT、Claude等顶尖模型。支持ChatShare官方下载，源头厂家直供，激活码续费简单便捷。">
+  <meta name="keywords" content="chatshare官网入口,chatshare官网,chatshare激活码,chatshare怎么续费,chatshare官方下载,chatshare网页版登录入口,chatshare源头厂家,科研绘图提示词,技术路线图,biorender风格">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="static/css/css2-CormorantGaramonditalwght030004000500060013001400_Outfitwght300400500600700_NotoSansSCwght300400500_swap.css" rel="stylesheet">
+
+  <style>
+    :root {
+      --gold:        #c9a84c;
+      --gold-light:  #e8c97a;
+      --gold-dim:    rgba(201,168,76,0.45);
+      --gold-faint:  rgba(201,168,76,0.12);
+      --ink:         #ede8df;
+      --ink-dim:     rgba(220,215,205,0.5);
+      --ink-muted:   rgba(180,175,165,0.35);
+      --bg:          #07090f;
+      --surface:     rgba(255,255,255,0.028);
+      --border:      rgba(201,168,76,0.14);
+      --border-mid:  rgba(201,168,76,0.26);
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Outfit', 'Noto Sans SC', sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      overflow-x: hidden;
+      min-height: 100vh;
+    }
+
+    /* ── Background ── */
+    .bg-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      pointer-events: none;
+    }
+    .bg-layer::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(30,50,120,0.45) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 40% at 80% 90%,  rgba(100,70,15,0.13) 0%, transparent 55%),
+        radial-gradient(ellipse 50% 60% at 10% 70%,  rgba(20,35,100,0.28) 0%, transparent 55%);
+      animation: breathe 16s ease-in-out infinite;
+    }
+    .bg-layer::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23g)' opacity='0.03'/%3E%3C/svg%3E");
+      opacity: 0.6;
+    }
+    @keyframes breathe {
+      0%,100% { transform: scale(1);    opacity: .9; }
+      50%      { transform: scale(1.04); opacity: 1;  }
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      height: 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 clamp(24px, 5vw, 80px);
+      background: rgba(7,9,15,0.8);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(201,168,76,0.08);
+    }
+    .nav-logo {
+      font-family: 'Outfit', sans-serif;
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+    .nav-logo span {
+      background: linear-gradient(130deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 800;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+    .nav-link {
+      font-size: 12px;
+      font-weight: 500;
+      color: rgba(220,215,205,0.4);
+      text-decoration: none;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      transition: color .25s;
+    }
+    .nav-link:hover { color: var(--gold-light); }
+
+    /* ── Page ── */
+    .page {
+      position: relative;
+      z-index: 1;
+      padding-top: 56px;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      text-align: center;
+      padding: clamp(48px, 7vw, 80px) clamp(20px, 5vw, 80px) clamp(28px, 4vw, 44px);
+      position: relative;
+    }
+    .hero-glow {
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(700px, 90vw);
+      height: 320px;
+      background: radial-gradient(ellipse, rgba(201,168,76,0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 24px;
+      opacity: 0;
+      animation: fadeUp .8s .1s ease forwards;
+    }
+    .hero-eyebrow-line {
+      width: 40px; height: 1px;
+      background: linear-gradient(90deg, transparent, var(--gold-dim));
+    }
+    .hero-eyebrow-line.r {
+      background: linear-gradient(90deg, var(--gold-dim), transparent);
+    }
+    .hero-eyebrow-text {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.25em;
+      color: rgba(201,168,76,0.5);
+      text-transform: uppercase;
+    }
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(34px, 6vw, 68px);
+      font-weight: 300;
+      line-height: 1.12;
+      color: var(--ink);
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      opacity: 0;
+      animation: fadeUp .9s .2s ease forwards;
+    }
+    .hero-title em { font-style: italic; color: var(--gold-light); }
+    .hero-sub {
+      font-size: clamp(13px, 1.6vw, 15px);
+      color: var(--ink-dim);
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      max-width: 520px;
+      margin: 0 auto 20px;
+      line-height: 1.85;
+      opacity: 0;
+      animation: fadeUp .9s .35s ease forwards;
+    }
+    .hero-badges {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      opacity: 0;
+      animation: fadeUp .9s .45s ease forwards;
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 14px;
+      border-radius: 100px;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(201,168,76,0.12);
+      font-size: 11px;
+      color: rgba(220,215,205,0.5);
+      font-weight: 400;
+    }
+    .hero-badge-dot {
+      width: 5px; height: 5px; border-radius: 50%;
+      background: var(--gold);
+      box-shadow: 0 0 5px rgba(201,168,76,.7);
+    }
+    .hero-badge-dot.blue  { background:#3b82f6; box-shadow:0 0 5px rgba(59,130,246,.7); }
+    .hero-badge-dot.amber { background:#f59e0b; box-shadow:0 0 5px rgba(245,158,11,.7); }
+    .hero-badge-dot.indigo{ background:#6366f1; box-shadow:0 0 5px rgba(99,102,241,.7); }
+
+    /* ── HR gold ── */
+    .hr-gold {
+      width: 100%; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.18) 30%, rgba(201,168,76,0.18) 70%, transparent);
+    }
+
+    /* ── Quick links ── */
+    .quick-links {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      padding: 18px 24px;
+      max-width: 900px;
+      margin: 0 auto;
+      opacity: 0;
+      animation: fadeUp .9s .55s ease forwards;
+    }
+    .quick-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 7px 18px;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: rgba(220,215,205,0.55);
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.03em;
+      transition: all .3s;
+    }
+    .quick-link:hover {
+      border-color: var(--border-mid);
+      color: var(--gold-light);
+      background: rgba(201,168,76,0.05);
+    }
+
+    /* ── Content wrap ── */
+    .content-wrap {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(32px,5vw,56px) clamp(20px,5vw,60px) clamp(56px,8vw,96px);
+      opacity: 0;
+      animation: fadeUp .9s .6s ease forwards;
+    }
+
+    /* ── Section label ── */
+    .section-label {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 36px;
+    }
+    .section-label-line {
+      flex: 1; height: 1px;
+      background: linear-gradient(90deg, rgba(201,168,76,0.2), transparent);
+    }
+    .section-label-text {
+      font-size: 9px;
+      font-weight: 600;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.4);
+      text-transform: uppercase;
+      white-space: nowrap;
+    }
+
+    /* ── Model selector card ── */
+    .model-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(201,168,76,0.07);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      margin-bottom: 32px;
+    }
+    @media(max-width:600px){ .model-grid{ grid-template-columns:1fr; } }
+    .model-cell {
+      background: rgba(7,9,15,0.97);
+      padding: 22px 20px;
+      transition: background .3s;
+    }
+    .model-cell:hover { background: rgba(201,168,76,0.03); }
+    .model-cell-rank {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 300;
+      color: rgba(201,168,76,0.18);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .model-cell-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      color: rgba(232,200,120,0.75);
+      margin-bottom: 5px;
+      font-weight: 400;
+    }
+    .model-cell-desc {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 11.5px;
+      color: rgba(130,130,140,0.45);
+      font-weight: 300;
+      line-height: 1.75;
+      letter-spacing: 0.02em;
+    }
+    .model-badge {
+      display: inline-block;
+      font-size: 9px; font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-bottom: 10px;
+      background: linear-gradient(130deg, #c9a84c, #9a7830);
+      color: #07090f;
+      box-shadow: 0 2px 8px rgba(201,168,76,0.25);
+    }
+
+    /* ── Chapter block ── */
+    .chapter {
+      margin-bottom: 60px;
+    }
+    .chapter-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      color: rgba(201,168,76,0.3);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      display: block;
+      margin-bottom: 10px;
+    }
+    .chapter-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(24px, 3.2vw, 38px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+      margin-bottom: 18px;
+      position: relative;
+      padding-bottom: 14px;
+    }
+    .chapter-title::after {
+      content: '';
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 36px; height: 1px;
+      background: linear-gradient(90deg, var(--gold), transparent);
+    }
+    .chapter-title em { font-style: italic; color: rgba(201,168,76,0.7); }
+
+    .sub-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(18px, 2.2vw, 24px);
+      font-weight: 400;
+      color: rgba(232,201,122,0.75);
+      margin: 32px 0 12px;
+      letter-spacing: 0.01em;
+    }
+
+    /* ── Body text ── */
+    .body-text {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      color: rgba(200,196,185,0.5);
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.025em;
+      margin: 10px 0;
+    }
+    .body-text strong { color: rgba(232,201,122,0.65); font-weight: 500; }
+    .body-text a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      opacity: .7;
+      transition: opacity .2s;
+    }
+    .body-text a:hover { opacity: 1; }
+
+    /* ── Template box ── */
+    .tpl-box {
+      position: relative;
+      background: rgba(255,255,255,0.022);
+      border: 1px solid rgba(201,168,76,0.16);
+      border-radius: 16px;
+      padding: 26px 24px;
+      margin: 16px 0;
+      overflow: hidden;
+      transition: border-color .35s;
+    }
+    .tpl-box:hover { border-color: rgba(201,168,76,0.3); }
+    .tpl-box::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.35), transparent);
+    }
+    .tpl-box-label {
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(201,168,76,0.45);
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .tpl-box-label::before {
+      content: '';
+      width: 18px; height: 1px;
+      background: var(--gold-dim);
+    }
+    .tpl-content {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13.5px;
+      color: rgba(200,196,185,0.6);
+      font-weight: 300;
+      line-height: 2;
+      letter-spacing: 0.02em;
+    }
+    .tpl-content em {
+      font-style: normal;
+      color: rgba(232,201,122,0.7);
+      font-weight: 400;
+    }
+
+    /* ── Note box ── */
+    .note-box {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 14px 18px;
+      background: rgba(201,168,76,0.03);
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 12px;
+      margin: 14px 0;
+    }
+    .note-icon {
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      opacity: .5;
+    }
+    .note-text {
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 12.5px;
+      color: rgba(180,175,165,0.5);
+      font-weight: 300;
+      line-height: 1.9;
+      letter-spacing: 0.025em;
+    }
+    .note-text a {
+      color: var(--gold-light);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      opacity: .7;
+    }
+    .note-text a:hover { opacity: 1; }
+
+    /* ── Image card ── */
+    .img-card {
+      width: 100%;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.02);
+      padding: 14px;
+      margin: 18px 0;
+      transition: border-color .3s;
+    }
+    .img-card:hover { border-color: rgba(201,168,76,0.22); }
+    .img-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      filter: brightness(.88) contrast(1.04);
+    }
+
+    /* ── Step list ── */
+    .step-list {
+      counter-reset: step;
+      list-style: none;
+      margin: 14px 0;
+    }
+    .step-list li {
+      counter-increment: step;
+      display: flex;
+      gap: 16px;
+      padding: 14px 0;
+      border-bottom: 1px solid rgba(201,168,76,0.06);
+      font-family: 'Noto Sans SC', sans-serif;
+      font-size: 13px;
+      color: rgba(180,175,165,0.5);
+      line-height: 1.85;
+      letter-spacing: 0.02em;
+    }
+    .step-list li:last-child { border-bottom: none; }
+    .step-list li::before {
+      content: counter(step, decimal-leading-zero);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: rgba(201,168,76,0.28);
+      line-height: 1.4;
+      flex-shrink: 0;
+      min-width: 28px;
+    }
+
+    /* ── Ornament divider ── */
+    .ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      margin: 48px 0;
+    }
+    .ornament-line {
+      flex: 1; max-width: 160px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(201,168,76,0.15));
+    }
+    .ornament-line.r {
+      background: linear-gradient(90deg, rgba(201,168,76,0.15), transparent);
+    }
+    .ornament-diamond {
+      width: 5px; height: 5px;
+      background: rgba(201,168,76,0.35);
+      transform: rotate(45deg);
+    }
+
+    /* ── Contact ── */
+    .contact-card {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 16px 28px;
+      border: 1px solid rgba(201,168,76,0.12);
+      border-radius: 14px;
+      background: rgba(255,255,255,0.018);
+      margin: 24px 0;
+      transition: border-color .3s;
+    }
+    .contact-card:hover { border-color: rgba(201,168,76,0.25); }
+    .contact-label {
+      font-size: 11px;
+      color: rgba(155,160,175,0.4);
+      letter-spacing: 0.05em;
+    }
+    .contact-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 14px; font-weight: 600;
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: opacity .25s;
+    }
+    .contact-link:hover { opacity: .75; }
+
+    /* ── QR ── */
+    .qr-wrap {
+      display: inline-flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 12px;
+      padding: 24px;
+      border: 1px solid rgba(201,168,76,0.1);
+      border-radius: 16px;
+      background: rgba(255,255,255,0.02);
+    }
+    .qr-wrap img {
+      max-width: 170px;
+      border-radius: 10px;
+      filter: brightness(.85) contrast(1.05);
+    }
+    .qr-caption {
+      font-size: 11px;
+      color: rgba(155,160,175,0.35);
+      letter-spacing: 0.06em;
+    }
+    .center-block { display: flex; justify-content: center; margin: 24px 0; }
+
+    /* ── Part banner ── */
+    .part-banner {
+      text-align: center;
+      padding: 40px 20px 24px;
+    }
+    .part-banner-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 11px;
+      letter-spacing: 0.3em;
+      color: rgba(201,168,76,0.3);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .part-banner-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(26px, 4vw, 46px);
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.15;
+      letter-spacing: -0.015em;
+    }
+    .part-banner-title em { font-style: italic; color: var(--gold-light); }
+    .part-banner-sub {
+      font-size: 13px;
+      color: rgba(200,196,185,0.3);
+      font-weight: 300;
+      margin-top: 8px;
+      letter-spacing: 0.04em;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(201,168,76,0.08);
+      background: rgba(7,9,15,0.8);
+      padding: 22px;
+      text-align: center;
+    }
+    footer p {
+      font-size: 11px;
+      color: rgba(130,125,115,0.35);
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: 'Outfit', sans-serif;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(20px); }
+      to   { opacity: 1; transform: translateY(0);    }
+    }
+
+    @media(max-width:600px){
+      .content-wrap { padding: 24px 16px 56px; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-layer"></div>
+
+  <nav>
+    <div class="nav-logo">ChatShare<span>.one</span></div>
+    <div class="nav-links">
+      <a href="https://qm.qq.com/q/r15K2RpmZq" class="nav-link" target="_blank">人工客服</a>
+      <a href="#top" class="nav-link">回到顶部</a>
+    </div>
+  </nav>
+
+  <div class="page" id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-glow"></div>
+      <div class="hero-eyebrow">
+        <div class="hero-eyebrow-line"></div>
+        <span class="hero-eyebrow-text">Scientific Visualization · Prompt Library</span>
+        <div class="hero-eyebrow-line r"></div>
+      </div>
+      <h1 class="hero-title">
+        科研绘图<br>
+        <em>技术路线图提示词</em>
+      </h1>
+      <p class="hero-sub">
+        从摘要出图到技术路线图，完整提示词工作流<br>
+        通过 <strong>ChatShare官网入口</strong> 登录，激活码即可调用顶尖AI出图模型<br>
+        BioRender 风格 · SVG 可编辑 · DrawIO 直导
+      </p>
+      <div class="hero-badges">
+        <div class="hero-badge"><span class="hero-badge-dot amber"></span>Banana</div>
+        <div class="hero-badge"><span class="hero-badge-dot blue"></span>GPT</div>
+        <div class="hero-badge"><span class="hero-badge-dot"></span>Gemini</div>
+        <div class="hero-badge"><span class="hero-badge-dot indigo"></span>Claude</div>
+      </div>
+    </section>
+
+    <!-- Quick links -->
+    <div class="quick-links">
+      <a href="index.html" target="_blank" class="quick-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+        ChatShare 官网入口
+      </a>
+      <a href="https://fcai.me/chatshare" target="_blank" class="quick-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+        激活码购买 / 续费
+      </a>
+      <a href="papre.html" target="_blank" class="quick-link">
+        <svg width="13" height="13" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
+        论文撰写提示词
+      </a>
+    </div>
+
+    <div class="hr-gold"></div>
+
+    <!-- 关键词介绍段 -->
+    <div style="max-width:860px;margin:0 auto;padding:32px 24px 0;text-align:center;">
+      <p style="font-size:13px;color:rgba(220,215,205,0.55);line-height:1.9;letter-spacing:0.03em;">
+        本页面由 <a href="index.html" target="_blank" style="color:var(--gold);text-decoration:none;"><strong>ChatShare官网</strong></a> 整理发布，作为 ChatShare官网入口 的科研资源专区。
+        所有提示词均可通过 ChatShare网页版登录入口 直接使用——输入 ChatShare激活码 即可调用 Banana、GPT、Claude 等多款顶尖出图模型。
+        如需 ChatShare官方下载 客户端，或了解 ChatShare怎么续费，请前往官网查看。我们是正规 ChatShare源头厂家，价格透明、服务稳定。
+      </p>
+    </div>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <div class="content-wrap">
+
+      <!-- Model selector -->
+      <div class="section-label">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Recommended Models · 出图模型选择</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <div class="model-grid">
+        <div class="model-cell">
+          <div class="model-cell-rank">①</div>
+          <div class="model-cell-title">Banana</div>
+          <div class="model-cell-desc">gemini 专区<br>效果最佳，首选推荐</div>
+        </div>
+        <div class="model-cell">
+          <div class="model-cell-rank">②</div>
+          <div class="model-cell-title">Banana / GPT</div>
+          <div class="model-cell-desc">新版 Plus 系统<br>谷歌模型专区</div>
+        </div>
+        <div class="model-cell">
+          <div class="model-cell-rank">③</div>
+          <div class="model-cell-title">GPT</div>
+          <div class="model-cell-desc">备选方案<br>多模型组合使用效果更佳</div>
+        </div>
+      </div>
+
+      <div class="img-card">
+        <img src="static/picture/99.png" alt="服务专区界面">
+      </div>
+
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <!-- ===== Part I: 科研绘图 ===== -->
+      <div class="part-banner">
+        <div class="part-banner-num">Part Ⅰ</div>
+        <h2 class="part-banner-title">科研绘图<br><em>Banana · GPT</em></h2>
+        <p class="part-banner-sub">BioRender 风格机制图生成</p>
+      </div>
+
+      <div class="section-label" style="margin-top:32px;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">四种出图方式</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <!-- 1 提示词出图 -->
+      <div class="chapter">
+        <span class="chapter-num">Method · 01</span>
+        <h2 class="chapter-title">提示词出图<em>（摘要/研究内容）</em></h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            你现在是一名经验丰富的科研绘图设计师，请结合我发你的【文本摘要/研究内容】生成对应的 <em>biorender 风格</em>的可用于科研发表的机制图（长宽比 16:9，背景白色）。研究内容如下：【输入对应内容即可，中英文都行】
+          </div>
+        </div>
+
+        <div class="note-box">
+          <span class="note-icon">💡</span>
+          <p class="note-text">科研绘图语言默认为<strong>英文</strong>，需要中文的可在提示词后添加：【图中的文字转为简体中文】，下同。</p>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/98.png" alt="提示词出图示例1">
+        </div>
+        <div class="img-card">
+          <img src="static/picture/97.png" alt="提示词出图示例2">
+        </div>
+      </div>
+
+      <!-- 2 手稿生图 -->
+      <div class="chapter">
+        <span class="chapter-num">Method · 02</span>
+        <h2 class="chapter-title">手稿生图</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            你现在是一名经验丰富的科研绘图设计师，根据所提供的草稿图，进行上色和修饰，生成一份可用于科研发表的机制图，要求 <em>biorender 风格</em>，长宽比 16:9，图片背景白色，生成对应符合科研发表的期刊级插图。
+          </div>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/96.png" alt="手稿生图示例">
+        </div>
+      </div>
+
+      <!-- 3 参考案例图 -->
+      <div class="chapter">
+        <span class="chapter-num">Method · 03</span>
+        <h2 class="chapter-title">参考案例图 + 提示词<em>（风格统一）</em></h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            你现在是一名经验丰富的科研绘图设计师，需要你生成符合科研发表的期刊级插图，结合我发你的<em>研究内容</em>再参考我发你的<em>样图</em>（借鉴模仿配色，排版设计等，16:9 尺寸，背景白色）生成对应 biorender 风格机制图。研究内容如下：【】。
+          </div>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/95.png" alt="参考案例图+提示词出图示例">
+        </div>
+      </div>
+
+      <!-- 4 多模型组合 -->
+      <div class="chapter">
+        <span class="chapter-num">Method · 04</span>
+        <h2 class="chapter-title">多模型组合使用</h2>
+
+        <p class="body-text">由于 Banana 模型<strong>无法识别文档</strong>，如果需要根据整篇文档内容进行出图，需先使用 GPT / Grok 模型生成提示词，再把生成的提示词直接粘贴进 Banana 模型进行出图。以上操作均可在 <a href="index.html" target="_blank" style="color:var(--gold);text-decoration:none;">ChatShare网页版登录入口</a> 完成，登录后左下角服务专区一键切换模型。</p>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板（第一步：用 GPT/Grok 生成英文提示词）</div>
+          <div class="tpl-content">
+            你现在是一名经验丰富的科研绘图设计师，我计划画一个符合论文内容的作用机制图，帮我生成一段用于 <em>Banana 模型</em>出图的英文提示词，要求 biorender 风格，符合学术规范，专业性强。【上传你的论文】
+          </div>
+        </div>
+
+        <div class="note-box">
+          <span class="note-icon">🌐</span>
+          <p class="note-text">如果需要中文版科研绘图，请在提示词后加上：<strong>Change all the text in the document into Simplified Chinese and list them。</strong></p>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/94.png" alt="多模型组合使用生图示例">
+        </div>
+      </div>
+
+      <!-- 5 技巧说明 -->
+      <div class="chapter">
+        <span class="chapter-num">Tips</span>
+        <h2 class="chapter-title">技巧与说明</h2>
+
+        <ol class="step-list">
+          <li>
+            图生图模式，<strong>一定要找个和你研究方向类似的比较好看的插图</strong>，借鉴原图配色灵感，保留原图排版设计风格，结合你的研究内容生图，从而能达到不错的惊艳效果，基本适用于所有方向课题！
+          </li>
+          <li>
+            针对已经还原复刻出大概的还不错的插图，用 GPT / Banana 修改不理想的情况下，如果只是一些细节不到位比如文字，<strong>建议直接 PS</strong>。
+          </li>
+          <li>
+            生出来的图片<strong>不是矢量图</strong>，为 2K 图片，如果需要矢量图或者更高清的图片，需借助其他软件完成。
+          </li>
+        </ol>
+      </div>
+
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <!-- ===== Part II: 技术路线图 SVG ===== -->
+      <div class="part-banner">
+        <div class="part-banner-num">Part Ⅱ</div>
+        <h2 class="part-banner-title">中文技术路线图<br><em>Claude · SVG / PPT</em></h2>
+        <p class="part-banner-sub">可编辑格式，直接导入 PPT 或 DrawIO</p>
+      </div>
+
+      <div class="section-label" style="margin-top:32px;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Claude 模型 — 技术路线图</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <!-- 6.1 文生图 -->
+      <div class="chapter">
+        <span class="chapter-num">SVG · 01</span>
+        <h2 class="chapter-title">文生图<em>（SVG 格式）</em></h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            请你作为一个专业背景学者，思考一个符合论文内容的技术路线框架图，图片配色方案包括四种颜色以上，可选的颜色 hex 代码如：<em>7CD6CF, 76DA91, 63B2EE, 7898E1, 9192AB, F89588, E9D8A6, ADE8F4, FFC8DD, A2D2FF</em>，请一步一步阅读、推理与设计，更加概念、示意的层面进行图解设计，要求图片大概对称美观，注意是<em>中文格式</em>，给我 SVG 代码，绘制出图表。【上传你的论文内容】
+          </div>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/93.png" alt="文生图技术路线图示例">
+        </div>
+      </div>
+
+      <!-- 6.2 图生图 -->
+      <div class="chapter">
+        <span class="chapter-num">SVG · 02</span>
+        <h2 class="chapter-title">图生图<em>（参考例图）</em></h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            参照这个技术路线例图，你消化一下。你是一位专家学者，正申请一个课题，名称为"【】"，那么，请你参考例图，为本课题画一个<em>类似的技术线路图</em>。要求，水准不低于例图。中间不要出现乱字，乱码之类的。图像清晰，输出 <em>svg 格式</em>即可。【上传参考图】
+          </div>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/92.png" alt="图生图技术路线图示例">
+        </div>
+      </div>
+
+      <!-- 6.3 导入PPT -->
+      <div class="chapter">
+        <span class="chapter-num">SVG · 03</span>
+        <h2 class="chapter-title">图片放到 PPT 里编辑</h2>
+
+        <p class="body-text">如果需要对内容进行修改，可以右键复制图片的 SVG 代码，粘贴到 SVG 编辑器中修改，同步即可修改技术路线图的内容。</p>
+
+        <div class="note-box">
+          <span class="note-icon">🔗</span>
+          <p class="note-text">免费 SVG 编辑器：<a href="https://www.svgviewer.dev/" target="_blank">https://www.svgviewer.dev/</a></p>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/91.png" alt="SVG编辑器界面">
+        </div>
+        <div class="img-card">
+          <img src="static/picture/90.png" alt="PPT中编辑技术路线图示例">
+        </div>
+
+        <div class="note-box">
+          <span class="note-icon">📋</span>
+          <p class="note-text">网页右下角点击下载 SVG 代码，代码可以<strong>直接粘贴进 PPT</strong> 进行修改（需 Office 版本，WPS 可能会报错），右键取消组合，调整文字大小即可。</p>
+        </div>
+      </div>
+
+      <div class="ornament">
+        <div class="ornament-line"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-diamond" style="background:rgba(201,168,76,0.2);"></div>
+        <div class="ornament-diamond"></div>
+        <div class="ornament-line r"></div>
+      </div>
+
+      <!-- ===== Part III: DrawIO ===== -->
+      <div class="part-banner">
+        <div class="part-banner-num">Part Ⅲ</div>
+        <h2 class="part-banner-title">轻松复刻<br><em>DrawIO 直接编辑</em></h2>
+        <p class="part-banner-sub">Claude 识图 → XML 代码 → DrawIO 一键导入</p>
+      </div>
+
+      <div class="section-label" style="margin-top:32px;">
+        <div class="section-label-line"></div>
+        <span class="section-label-text">Claude · DrawIO 工作流</span>
+        <div class="section-label-line" style="background:linear-gradient(90deg,transparent,rgba(201,168,76,0.2));"></div>
+      </div>
+
+      <div class="chapter" style="margin-top:32px;">
+        <span class="chapter-num">DrawIO · 01</span>
+        <h2 class="chapter-title">图片复刻为可编辑 XML</h2>
+
+        <div class="tpl-box">
+          <div class="tpl-box-label">提示词模板</div>
+          <div class="tpl-content">
+            请你仔细识别这个图片的关键信息，输出 <em>xml 格式</em>给我复刻这个图，方便我导入到 <em>drawio</em>，注意配色和文字方框细节等关键信息元素保持一致，不能遗漏任何一部分。
+          </div>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/89.png" alt="drawio复刻提示词示例">
+        </div>
+
+        <p class="body-text">把 XML 代码粘贴到 DrawIO 页面即可编辑美化，注意代码需完整输出，有时候太长 Claude 容易代码截断。使用 Claude 前请确认已通过 <a href="index.html" target="_blank" style="color:var(--gold);text-decoration:none;">ChatShare 官网入口</a> 登录并激活，<a href="https://fcai.me/chatshare" target="_blank" style="color:var(--gold);text-decoration:none;">ChatShare 激活码</a>购买后即可无限制调用。</p>
+
+        <div class="note-box">
+          <span class="note-icon">🔗</span>
+          <p class="note-text">DrawIO 在线编辑器：<a href="https://www.drawio.com/" target="_blank">https://www.drawio.com/</a></p>
+        </div>
+
+        <div class="img-card">
+          <img src="static/picture/88.png" alt="drawio编辑界面1">
+        </div>
+        <div class="img-card">
+          <img src="static/picture/87.png" alt="drawio编辑界面2">
+        </div>
+      </div>
+
+      <!-- QQ -->
+      <div class="contact-card">
+        <span class="contact-label">有任何问题？咨询人工客服：</span>
+        <a href="https://qm.qq.com/q/r15K2RpmZq" target="_blank" class="contact-link">
+          <svg width="16" height="16" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z"></path></svg>
+          QQ：1095492358
+        </a>
+      </div>
+
+
+
+    </div>
+    <!-- /content-wrap -->
+
+  </div>
+  <!-- /page -->
+
+  <footer>
+    <p>© ChatShare.one &nbsp;·&nbsp; 科研绘图提示词 &nbsp;·&nbsp; ChatShare官网入口 &nbsp;|&nbsp; 激活码购买续费 &nbsp;|&nbsp; ChatShare源头厂家</p>
+  </footer>
+
+</body>
+</html>

@@ -1,0 +1,34 @@
+﻿<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="/assets/favicon-DARTbnkU.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+  <title>ChatShare</title>
+  <script type="module" crossorigin src="static/js/index-xnEJyaQq.js"></script>
+  <link rel="stylesheet" crossorigin href="static/css/index-D7hU827E.css">
+</head>
+
+<body class="antialiased">
+  <script>
+    (function () {
+      try {
+        var key = 'theme'
+        var stored = localStorage.getItem(key)
+        var theme = stored === 'light' || stored === 'dark' || stored === 'system' ? stored : 'system'
+        var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        var enableDark = theme === 'dark' || (theme === 'system' && prefersDark)
+        if (enableDark) {
+          document.documentElement.classList.add('dark')
+        } else {
+          document.documentElement.classList.remove('dark')
+        }
+      } catch (e) { }
+    })()
+  </script>
+  <div id="app"></div>
+<script defer src="static/js/v8c78df7c7c0f484497ecbca7046644da1771523124516.js" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"1c1c7799c54e46349cc23295b5e08299","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+
+</html>
